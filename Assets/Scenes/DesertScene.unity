@@ -715,7 +715,7 @@ GameObject:
   m_Component:
   - component: {fileID: 244161486}
   - component: {fileID: 244161487}
-  m_Layer: 5
+  m_Layer: 4
   m_Name: DangerZoneCollider1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1561,7 +1561,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 2
+  m_Constraints: 0
 --- !u!212 &676607476
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1689,7 +1689,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 2
+  m_Constraints: 0
 --- !u!212 &708613665
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11079,7 +11079,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1183056989}
   - component: {fileID: 1183056990}
-  m_Layer: 5
+  m_Layer: 4
   m_Name: DangerZoneCollider2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11494,7 +11494,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 2
+  m_Constraints: 0
 --- !u!212 &1715756595
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11687,7 +11687,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1819033647}
   - component: {fileID: 1819033648}
-  m_Layer: 5
+  m_Layer: 4
   m_Name: DangerZoneCollider3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

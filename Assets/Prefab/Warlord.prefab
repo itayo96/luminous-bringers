@@ -184,6 +184,9 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1056
+  whatIsDangerZone:
+    serializedVersion: 2
+    m_Bits: 16
   groundChecker: {fileID: 5009830992003639890}
   maxHealthCount: 6
   healthTexture: {fileID: 2800000, guid: e5c25d5b7efb95049855d8f997f03d07, type: 3}

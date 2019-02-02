@@ -905,7 +905,7 @@ GameObject:
   m_Component:
   - component: {fileID: 640853594}
   - component: {fileID: 640853595}
-  m_Layer: 5
+  m_Layer: 4
   m_Name: WaterCollider3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -939,7 +939,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 24.517323, y: -0.13684464}
+  m_Offset: {x: 24.517323, y: -0.50525284}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -950,7 +950,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 54.99485, y: 1.7180786}
+  m_Size: {x: 54.99485, y: 0.9812622}
   m_EdgeRadius: 0
 --- !u!1 &670979585
 GameObject:
@@ -1137,7 +1137,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 2
+  m_Constraints: 0
 --- !u!212 &711781766
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1548,7 +1548,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1000441478}
   - component: {fileID: 1000441479}
-  m_Layer: 5
+  m_Layer: 4
   m_Name: WaterCollider2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1582,7 +1582,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.4943476, y: -0.13684464}
+  m_Offset: {x: 1.4943476, y: -0.48893738}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1593,7 +1593,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8.948904, y: 1.7180786}
+  m_Size: {x: 8.948904, y: 1.0138931}
   m_EdgeRadius: 0
 --- !u!1 &1013430179
 GameObject:
@@ -10619,7 +10619,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 2
+  m_Constraints: 0
 --- !u!212 &1108973271
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11007,7 +11007,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 2
+  m_Constraints: 0
 --- !u!212 &1237853258
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11366,7 +11366,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 2
+  m_Constraints: 0
 --- !u!212 &1332936565
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11494,7 +11494,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 2
+  m_Constraints: 0
 --- !u!212 &1345792083
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11630,7 +11630,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1361235323}
   - component: {fileID: 1361235324}
-  m_Layer: 5
+  m_Layer: 4
   m_Name: WaterCollider1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11664,7 +11664,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.48703, y: 0.34662294}
+  m_Offset: {x: -1.48703, y: 0.00011301041}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -11675,7 +11675,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.9861488, y: 2.6850138}
+  m_Size: {x: 2.9861488, y: 1.9919939}
   m_EdgeRadius: 0
 --- !u!1 &1383532121
 GameObject:
@@ -11878,7 +11878,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1455916083}
   - component: {fileID: 1455916084}
-  m_Layer: 5
+  m_Layer: 4
   m_Name: WaterCollider4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11912,7 +11912,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 27.516022, y: 0.3727417}
+  m_Offset: {x: 27.516022, y: -0.04172325}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -11923,7 +11923,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 60.99225, y: 2.7372513}
+  m_Size: {x: 60.99225, y: 1.9083214}
   m_EdgeRadius: 0
 --- !u!1 &1489585719
 GameObject:
@@ -12089,7 +12089,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1541703486}
   - component: {fileID: 1541703487}
-  m_Layer: 5
+  m_Layer: 4
   m_Name: WaterCollider5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12123,7 +12123,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.0567474, y: 0.3727417}
+  m_Offset: {x: 2.0567474, y: 0.0043315887}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -12134,7 +12134,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.0737, y: 2.7372513}
+  m_Size: {x: 10.0737, y: 2.000431}
   m_EdgeRadius: 0
 --- !u!1 &1551742351
 GameObject:
@@ -13117,7 +13117,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 2
+  m_Constraints: 0
 --- !u!212 &1924247188
 SpriteRenderer:
   m_ObjectHideFlags: 0

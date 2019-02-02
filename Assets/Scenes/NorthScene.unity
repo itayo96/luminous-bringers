@@ -471,7 +471,7 @@ GameObject:
   m_Component:
   - component: {fileID: 208489295}
   - component: {fileID: 208489296}
-  m_Layer: 5
+  m_Layer: 4
   m_Name: WaterCollider3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -505,7 +505,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 28.466751, y: -0.13684464}
+  m_Offset: {x: 28.466751, y: -0.4480877}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -516,7 +516,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 62.893707, y: 1.7180786}
+  m_Size: {x: 62.893707, y: 1.0955925}
   m_EdgeRadius: 0
 --- !u!1 &254886887
 GameObject:
@@ -857,7 +857,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 2
+  m_Constraints: 0
 --- !u!212 &362249424
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1653,7 +1653,7 @@ GameObject:
   m_Component:
   - component: {fileID: 958759119}
   - component: {fileID: 958759120}
-  m_Layer: 5
+  m_Layer: 4
   m_Name: WaterCollider2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1687,7 +1687,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 8.008079, y: -0.13684464}
+  m_Offset: {x: 8.008079, y: -0.42378616}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1698,7 +1698,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 21.976366, y: 1.7180786}
+  m_Size: {x: 21.976366, y: 1.1441956}
   m_EdgeRadius: 0
 --- !u!1 &997570003
 GameObject:
@@ -5896,7 +5896,7 @@ Tilemap:
   - first: {x: 86, y: -3, z: 0}
     second:
       m_TileIndex: 6
-      m_TileSpriteIndex: 6
+      m_TileSpriteIndex: 10
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -5905,7 +5905,7 @@ Tilemap:
   - first: {x: 87, y: -3, z: 0}
     second:
       m_TileIndex: 5
-      m_TileSpriteIndex: 5
+      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -9325,18 +9325,18 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: 97a67444aca6e284fb9f815235ab4c09, type: 3}
   - m_RefCount: 7
     m_Data: {fileID: 21300000, guid: d77579812a69eac4fae5e048fb281d3f, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: d74d2921f7a20b24c9cd1772330d9f60, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: b5cec28f816682748ab8519d46867f79, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 9cb98f0ffe6839e4085b6e1f66b6159d, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 21300000, guid: 8bb3defb7732624468ddc8b22458eab1, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 21300000, guid: ba3e3d477b87c3046a144f78de978ca5, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: b5cec28f816682748ab8519d46867f79, type: 3}
   - m_RefCount: 109
     m_Data: {fileID: 21300000, guid: 91e3f8247f9c1074daf55555102d8281, type: 3}
   - m_RefCount: 67
@@ -10918,7 +10918,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1924179857}
   - component: {fileID: 1924179858}
-  m_Layer: 5
+  m_Layer: 4
   m_Name: WaterCollider1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10952,7 +10952,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.5205011, y: -0.12086916}
+  m_Offset: {x: 1.5205011, y: -0.5225873}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -10963,7 +10963,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.001211, y: 1.7500296}
+  m_Size: {x: 9.001211, y: 0.9465933}
   m_EdgeRadius: 0
 --- !u!1 &1971051898
 GameObject:
@@ -11291,7 +11291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2089051385}
   - component: {fileID: 2089051386}
-  m_Layer: 5
+  m_Layer: 4
   m_Name: WaterCollider4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11325,7 +11325,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 8.001019, y: 0.3727417}
+  m_Offset: {x: 8.001019, y: 0.05831337}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -11336,7 +11336,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 21.962242, y: 2.7372513}
+  m_Size: {x: 21.962242, y: 2.1083946}
   m_EdgeRadius: 0
 --- !u!1 &2134744179
 GameObject:
