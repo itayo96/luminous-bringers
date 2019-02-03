@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 5009830990719952355}
   - component: {fileID: 5009830990719952352}
   - component: {fileID: 5009830990719952353}
-  - component: {fileID: 5009830990719952358}
-  - component: {fileID: 5009830990719952359}
-  - component: {fileID: 5009830990719952356}
   - component: {fileID: 5009830990719952354}
   - component: {fileID: 5009830990719952365}
+  - component: {fileID: 2450348290826493896}
+  - component: {fileID: 5122855259244387407}
   m_Layer: 11
   m_Name: Warlord
   m_TagString: Untagged
@@ -107,64 +106,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &5009830990719952358
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5009830990719952357}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.12203276, y: -0.5350672}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.12, y: 5.12}
-    newSize: {x: 5.12, y: 5.12}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.1022886, y: 2.0410087}
-  m_EdgeRadius: 0
---- !u!58 &5009830990719952359
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5009830990719952357}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.018773872, y: 0.5069077}
-  serializedVersion: 2
-  m_Radius: 0.75766283
---- !u!58 &5009830990719952356
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5009830990719952357}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.33793736, y: -0.6289399}
-  serializedVersion: 2
-  m_Radius: 0.48543322
 --- !u!114 &5009830990719952354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +131,11 @@ MonoBehaviour:
   groundChecker: {fileID: 5009830992003639890}
   maxHealthCount: 6
   healthTexture: {fileID: 2800000, guid: e5c25d5b7efb95049855d8f997f03d07, type: 3}
+  jumpAnimTime: 0.25
+  leftClickAnimTime: 0.35
+  rightClickAnimTime: 0.35
+  hurtAnimTime: 0.15
+  deathAnimTime: 0.72
 --- !u!95 &5009830990719952365
 Animator:
   serializedVersion: 3
@@ -209,6 +155,38 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &2450348290826493896
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5009830990719952357}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.05768299, y: -0.965018}
+  serializedVersion: 2
+  m_Radius: 0.608809
+--- !u!70 &5122855259244387407
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5009830990719952357}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.032047033, y: 0.01922667}
+  m_Size: {x: 1.3898158, y: 2.4409337}
+  m_Direction: 0
 --- !u!1 &5009830992003639891
 GameObject:
   m_ObjectHideFlags: 0
