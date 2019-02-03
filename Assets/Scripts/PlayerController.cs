@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 
     // Private Movement Members
     private float horizontalMove = 0f;
+    private bool isPreAirborn = false;
 
     // Public Ground Members
     public LayerMask whatIsGround;
@@ -37,11 +38,11 @@ public class PlayerController : MonoBehaviour
     private int health = 3;
 
     // Public Animation Timers
-    public float jumpAnimTime = 0.4f;
+    public float jumpAnimTime = 0.25f;
     public float leftClickAnimTime = 0.35f;
     public float rightClickAnimTime = 0.35f;
     public float hurtAnimTime = 0.15f;
-    public float deathAnimTime = 0.76f;
+    public float deathAnimTime = 0.72f;
 
     // Animator Flags
     private bool isJumping = false;
@@ -60,6 +61,15 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundChecker.position, groundOverlapRadius, whatIsGround);
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            if (colliders[i].gameObject != gameObject)
+            {
+                isGrounded = true;
+            }
+        }
     }
 
     // -------------------
@@ -70,24 +80,27 @@ public class PlayerController : MonoBehaviour
         // Get horizontal button for movement direction
         horizontalMove = Input.GetAxisRaw("Horizontal");
 
-        // Animator speed flag set
-        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-
         // Key listeners
-        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
+        if (Input.GetKeyDown(KeyCode.Space) && !isJumping && isGrounded)
         {
             isLeftClick = false;
             isRightClick = false;
             isJumping = true;
         }
-        else if (Input.GetKeyDown(KeyCode.Mouse0) && !isLeftClick && !isJumping)
+        else if (!isLeftClick && !isRightClick && !isJumping && horizontalMove == 0)
         {
-            isLeftClick = true;
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                isLeftClick = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.Mouse1))
+            {
+                isRightClick = true;
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.Mouse1) && !isRightClick && !isJumping)
-        {
-            isRightClick = true;
-        }
+
+        // Animator speed flag set
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
     }
 
     void FixedUpdate()
@@ -103,25 +116,30 @@ public class PlayerController : MonoBehaviour
         if (!IsAlive())
         {
             animator.SetBool("IsAlive", false);
+            animator.SetBool("IsJumping", false);
             StartCoroutine(OnDeathAnimation());
 
             return;
         }
 
-        // Ground checking with circlecast
-        bool wasGrounded = isGrounded;
-        isGrounded = false;
-
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundChecker.position, groundOverlapRadius, whatIsGround);
-        for (int i = 0; i < colliders.Length; i++)
+        if (!isPreAirborn)
         {
-            if (colliders[i].gameObject != gameObject)
+            // Ground checking with circlecast
+            bool wasGrounded = isGrounded;
+            isGrounded = false;
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(groundChecker.position, groundOverlapRadius, whatIsGround);
+            for (int i = 0; i < colliders.Length; i++)
             {
-                isGrounded = true;
-                if (!wasGrounded && Math.Abs(rigidBody.velocity.y) < 0.01f)
+                if (colliders[i].gameObject != gameObject)
                 {
-                    OnLanding();
-                    Debug.Log(colliders[i].gameObject.name);
+                    if (!wasGrounded && rigidBody.velocity.y < 0f)
+                    {
+                        OnLanding();
+                    }
+                    else if (wasGrounded)
+                    {
+                        isGrounded = true;
+                    }
                 }
             }
         }
@@ -136,29 +154,34 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        // Move the player
-        Move();
-
         // Left Click if requested
-        if (isLeftClick)
+        if (isGrounded)
         {
-            LeftClick();
-            StartCoroutine(OnLeftClickAnimation());
-        }
-
-        // Right Click if requested
-        if (isRightClick)
-        {
-            RightClick();
-            StartCoroutine(OnRightClickAnimation());
+            if (isLeftClick)
+            {
+                LeftClick();
+                animator.SetBool("IsLeftClick", true);
+                isLeftClick = false;
+                StartCoroutine(OnLeftClickAnimation());
+            }
+            else if (isRightClick) // Right Click if requested
+            {
+                RightClick();
+                animator.SetBool("IsRightClick", true);
+                isRightClick = false;
+                StartCoroutine(OnRightClickAnimation());
+            }
+            else
+            {
+                // Move the player on the ground if not left or right clicks
+                Move();
+            }
         }
 
         // Refresh player stats if implemented
         Refresh();
 
         animator.SetBool("IsJumping", isJumping);
-        animator.SetBool("IsLeftClick", isLeftClick);
-        animator.SetBool("IsRightClick", isRightClick);
         animator.SetBool("IsBeingHurt", isBeingHurt);
     }
 
@@ -196,10 +219,11 @@ public class PlayerController : MonoBehaviour
         }
 
         // If jump was requested
-        if (isGrounded && isJumping)
+        if (isGrounded && isJumping && !isPreAirborn)
         {
             // Add a vertical force to the player
             isGrounded = false;
+            isPreAirborn = true;
             StartCoroutine(OnJumpAnimation());
         }
     }
@@ -214,6 +238,7 @@ public class PlayerController : MonoBehaviour
     public void OnLanding()
     {
         isJumping = false;
+        isGrounded = true;
     }
 
     public void OnGettingHit()
@@ -225,6 +250,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(jumpAnimTime);
 
+        isPreAirborn = false;
         rigidBody.AddForce(new Vector2(0f, jumpForce));
     }
 
@@ -232,14 +258,14 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(leftClickAnimTime);
 
-        isLeftClick = false;
+        animator.SetBool("IsLeftClick", false);
     }
 
     IEnumerator OnRightClickAnimation()
     {
         yield return new WaitForSeconds(rightClickAnimTime);
 
-        isRightClick = false;
+        animator.SetBool("IsRightClick", false);
     }
 
     IEnumerator OnHurtAnimation()
