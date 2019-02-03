@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class RangerController : PlayerController
 {
+    // -----------
+    // Controllers
+    // -----------
+    protected override void LeftClick() { }
 
-
+    protected override void RightClick() { }
 }
