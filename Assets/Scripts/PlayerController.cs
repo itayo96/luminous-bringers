@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -6,7 +7,7 @@ using UnityEngine.Events;
 public class PlayerController : MonoBehaviour
 {
     // Components
-    Rigidbody2D rigidBody;
+    private Rigidbody2D rigidBody;
     public Animator animator;
 
     // Public Movement Members
@@ -35,11 +36,18 @@ public class PlayerController : MonoBehaviour
     // Private Stats Members
     private int health = 3;
 
+    // Public Animation Timers
+    public float jumpAnimTime = 0.4f;
+    public float leftClickAnimTime = 0.35f;
+    public float rightClickAnimTime = 0.35f;
+    public float hurtAnimTime = 0.15f;
+    public float deathAnimTime = 0.76f;
+
     // Animator Flags
-    bool isJumping = false;
-    bool isBeingHurt = false;
-    bool isLeftClick = false;
-    bool isRightClick = false;
+    private bool isJumping = false;
+    private bool isBeingHurt = false;
+    private bool isLeftClick = false;
+    private bool isRightClick = false;
 
     // --------
     // Starters
@@ -66,35 +74,36 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
         // Key listeners
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
         {
-            setJumpingFlag(true);
-            setLeftClickFlag(false);
-            setRightClickFlag(false);
+            isLeftClick = false;
+            isRightClick = false;
+            isJumping = true;
         }
-        else if (Input.GetKeyDown(KeyCode.Mouse0))
+        else if (Input.GetKeyDown(KeyCode.Mouse0) && !isLeftClick && !isJumping)
         {
-            setLeftClickFlag(true);
+            isLeftClick = true;
         }
-        else if (Input.GetKeyDown(KeyCode.Mouse1))
+        else if (Input.GetKeyDown(KeyCode.Mouse1) && !isRightClick && !isJumping)
         {
-            setRightClickFlag(true);
+            isRightClick = true;
         }
     }
 
     void FixedUpdate()
     {
-        // Resolve hurt effect set hurt flag to false, or resolve death due to danger zone
-        if (isBeingHurt || health == 0)
+        // Resolve hurt effect set hurt flag to false
+        if (isBeingHurt)
         {
             GotHit();
-            setHurtFlag(false);
+            StartCoroutine(OnHurtAnimation());
+        }
 
-            if (!IsAlive())
-            {
-                animator.SetBool("IsAlive", false);
-                StartCoroutine(OnDeathAnimation());
-            }
+        // Resolve death due to danger zone or enough hits
+        if (!IsAlive())
+        {
+            animator.SetBool("IsAlive", false);
+            StartCoroutine(OnDeathAnimation());
 
             return;
         }
@@ -109,9 +118,10 @@ public class PlayerController : MonoBehaviour
             if (colliders[i].gameObject != gameObject)
             {
                 isGrounded = true;
-                if (!wasGrounded && rigidBody.velocity.y < 0)
+                if (!wasGrounded && Math.Abs(rigidBody.velocity.y) < 0.01f)
                 {
                     OnLanding();
+                    Debug.Log(colliders[i].gameObject.name);
                 }
             }
         }
@@ -130,29 +140,26 @@ public class PlayerController : MonoBehaviour
         Move();
 
         // Left Click if requested
-        if (isLeftClick && !animator.GetBool("IsJumping"))
+        if (isLeftClick)
         {
             LeftClick();
-            isLeftClick = false;
-
-            // Stop left click animation
             StartCoroutine(OnLeftClickAnimation());
         }
 
         // Right Click if requested
-        if (isRightClick && !animator.GetBool("IsJumping"))
+        if (isRightClick)
         {
             RightClick();
-            isRightClick = false;
-
-            // Stop right click animation
             StartCoroutine(OnRightClickAnimation());
         }
 
-        isJumping = false;
-
         // Refresh player stats if implemented
         Refresh();
+
+        animator.SetBool("IsJumping", isJumping);
+        animator.SetBool("IsLeftClick", isLeftClick);
+        animator.SetBool("IsRightClick", isRightClick);
+        animator.SetBool("IsBeingHurt", isBeingHurt);
     }
 
     // -----------
@@ -176,10 +183,15 @@ public class PlayerController : MonoBehaviour
             // Smoothing the velocity out and applying it to the character
             rigidBody.velocity = Vector3.SmoothDamp(rigidBody.velocity, targetVelocity, ref velocity, movementSmoothing);
 
-            // If the input is moving the player right and the player is facing left, or the opposite
+            // If the input is moving the player right and the player is facing left, or the opposite, FLIP
             if ((move > 0 && !isFacingRight) || (move < 0 && isFacingRight))
             {
-                Flip();
+                isFacingRight = !isFacingRight;
+
+                // Multiply the player's x local scale by -1.
+                Vector3 theScale = transform.localScale;
+                theScale.x *= -1;
+                transform.localScale = theScale;
             }
         }
 
@@ -196,50 +208,57 @@ public class PlayerController : MonoBehaviour
 
     protected virtual void RightClick() { }
 
-    protected virtual void Refresh() { }
-
     // ------
     // Events
     // ------
-
     public void OnLanding()
     {
-        setJumpingFlag(false);
+        isJumping = false;
     }
 
     public void OnGettingHit()
     {
-        setHurtFlag(true);
+        isBeingHurt = true;
     }
 
-    protected virtual IEnumerator OnJumpAnimation()
+    IEnumerator OnJumpAnimation()
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(jumpAnimTime);
 
         rigidBody.AddForce(new Vector2(0f, jumpForce));
     }
 
-    protected virtual IEnumerator OnLeftClickAnimation()
+    IEnumerator OnLeftClickAnimation()
     {
-        yield return new WaitForSeconds(0.35f);
+        yield return new WaitForSeconds(leftClickAnimTime);
 
-        setLeftClickFlag(false);
+        isLeftClick = false;
     }
 
-    protected virtual IEnumerator OnRightClickAnimation()
+    IEnumerator OnRightClickAnimation()
     {
-        yield return new WaitForSeconds(0.35f);
+        yield return new WaitForSeconds(rightClickAnimTime);
 
-        setRightClickFlag(false);
+        isRightClick = false;
+    }
+
+    IEnumerator OnHurtAnimation()
+    {
+        yield return new WaitForSeconds(hurtAnimTime);
+
+        isBeingHurt = false;
     }
 
     IEnumerator OnDeathAnimation()
     {
-        yield return new WaitForSeconds(0.77f);
+        yield return new WaitForSeconds(deathAnimTime);
 
         Destroy(gameObject);
     }
 
+    // ------
+    // Stats
+    // ------
     public void GotHit()
     {
         if (health > 0)
@@ -253,48 +272,12 @@ public class PlayerController : MonoBehaviour
         return health > 0;
     }
 
-    private void Flip()
-    {
-        isFacingRight = !isFacingRight;
-
-        // Multiply the player's x local scale by -1.
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
-    }
-
-    // -----------------------
-    // Animator State Changers
-    // -----------------------
-
-    void setJumpingFlag(bool flag)
-    {
-        isJumping = flag;
-        animator.SetBool("IsJumping", flag);
-    }
-
-    void setLeftClickFlag(bool flag)
-    {
-        isLeftClick = flag;
-        animator.SetBool("IsLeftClick", flag);
-    }
-
-    void setRightClickFlag(bool flag)
-    {
-        isRightClick = flag;
-        animator.SetBool("IsRightClick", flag);
-    }
-
-    void setHurtFlag(bool flag)
-    {
-        isBeingHurt = flag;
-        animator.SetBool("IsBeingHurt", flag);
-    }
+    protected virtual void Refresh() { }
 
     // ---
     // GUI
     // ---
-    void OnGUI()
+    protected virtual void OnGUI()
     {
         // Text Style
         GUIStyle style = new GUIStyle();
