@@ -433,7 +433,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WarlordRightAttack
+  m_Name: WarlordRightBlock
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -447,7 +447,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a03f9eb2b3fbeb44f8e23b640fa36a80, type: 2}
+  m_Motion: {fileID: 7400000, guid: 0aae60830e8284e4ea06f1fb2589c9a9, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

@@ -241,7 +241,7 @@ public class PlayerController : MonoBehaviour
     // ------
     // Events
     // ------
-    public void OnGettingHit()
+    public virtual void OnGettingHit()
     {
         isBeingHurt = true;
     }
@@ -286,7 +286,7 @@ public class PlayerController : MonoBehaviour
     // ------
     // Stats
     // ------
-    public void GotHit()
+    protected virtual void GotHit()
     {
         if (health > 0)
         {

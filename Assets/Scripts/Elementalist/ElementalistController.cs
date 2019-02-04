@@ -22,6 +22,9 @@ public class ElementalistController : PlayerController
     private float iceBallWaitTime;
     private float xBallPosition = 0.7f;
 
+    // --------
+    // Starters
+    // --------
     new void Start()
     {
         base.Start();
@@ -43,16 +46,6 @@ public class ElementalistController : PlayerController
     protected override void RightClick()
     {
         Cast(iceBallToRight, iceBallToLeft, iceBallWaitTime);
-    }
-
-    protected override void Refresh()
-    {
-        // Refresh mana if needed and after set period of time
-        if ((Time.time > nextManaRefresh) && (mana < manaMaxCount))
-        {
-            nextManaRefresh = Time.time + manaRefreshRate;
-            mana++;
-        }
     }
 
     void Cast(GameObject elementalToRight, GameObject elementalToLeft, float waitTime)
@@ -80,6 +73,9 @@ public class ElementalistController : PlayerController
         }
     }
 
+    // ------
+    // Events
+    // ------
     IEnumerator OnCast(GameObject elemental, float x_position, float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
@@ -88,6 +84,19 @@ public class ElementalistController : PlayerController
 
         elementalPosition += new Vector2(x_position, 0f);
         Instantiate(elemental, elementalPosition, Quaternion.identity);
+    }
+
+    // ------
+    // Stats
+    // ------
+    protected override void Refresh()
+    {
+        // Refresh mana if needed and after set period of time
+        if ((Time.time > nextManaRefresh) && (mana < manaMaxCount))
+        {
+            nextManaRefresh = Time.time + manaRefreshRate;
+            mana++;
+        }
     }
 
     // ---
