@@ -119,8 +119,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 3706303508807807528}
-  runSpeed: 13
-  jumpForce: 230
+  runSpeed: 17
+  jumpForce: 320
   movementSmoothing: 0.05
   whatIsGround:
     serializedVersion: 2
@@ -132,10 +132,13 @@ MonoBehaviour:
   maxHealthCount: 3
   healthTexture: {fileID: 2800000, guid: e5c25d5b7efb95049855d8f997f03d07, type: 3}
   jumpAnimTime: 0.25
-  leftClickAnimTime: 0.35
-  rightClickAnimTime: 0.35
-  hurtAnimTime: 0.15
-  deathAnimTime: 0.72
+  leftClickAnimTime: 0.85
+  rightClickAnimTime: 0.85
+  hurtAnimTime: 0.25
+  deathAnimTime: 2
+  manaMaxCount: 3
+  manaRefreshRate: 5
+  manaTexture: {fileID: 2800000, guid: 9fa261f564c567d449f11be8fc32df99, type: 3}
 --- !u!95 &3706303508807807528
 Animator:
   serializedVersion: 3
