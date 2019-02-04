@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
     // Private Ground Members
     const float groundOverlapRadius = 0.2f;
-    private bool isFacingRight = true;
+    protected bool isFacingRight = true;
     private Vector3 velocity = Vector3.zero;
 
     // Public Stats Members
@@ -307,7 +307,7 @@ public class PlayerController : MonoBehaviour
     protected virtual void OnGUI()
     {
         // Health
-        Rect healthIcon = new Rect(50, 10, 64, 64);
+        Rect healthIcon = new Rect(50, 10, 70, 108);
         for (int i = 1; i <= health; i++)
         {
             GUI.DrawTexture(healthIcon, healthTexture);
