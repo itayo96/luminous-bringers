@@ -187,7 +187,7 @@ public class PlayerController : MonoBehaviour
     bool AirControl()
     {
         // Check if truly on ground
-        if (rigidBody.velocity.y <= 0)
+        if (rigidBody.velocity.y < 0.001f)
         {
             // Raycast from the feet of the player directly down
             RaycastHit2D hit2D = Physics2D.Raycast(groundChecker.position, Vector2.down, 0.2f, whatIsGround);
@@ -200,6 +200,8 @@ public class PlayerController : MonoBehaviour
                 {
                     // Update the last distance if the object below is less than the last known distance
                     lastDistance = hit2D.distance;
+
+                    return true;
                 }
                 else if (isJumping)
                 {
@@ -209,17 +211,21 @@ public class PlayerController : MonoBehaviour
                     isPreAirborn = true;
 
                     StartCoroutine(OnJumpAnimation());
+
+                    return true;
                 }
-                else if (rigidBody.velocity.y == 0)
+                else if (Math.Abs(rigidBody.velocity.y) < 0.001f)
                 {
                     animator.SetBool("IsJumping", false);
-
-                    return false;
+                }
+                else
+                {
+                    return true;
                 }
             }
         }
 
-        return true;
+        return false;
     }
 
     void CheckDangerZone()

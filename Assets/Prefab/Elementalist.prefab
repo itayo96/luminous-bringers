@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5439886876948993840}
   - component: {fileID: 8105007211640457965}
   - component: {fileID: 3706303508807807528}
-  - component: {fileID: 5359855456820018421}
   - component: {fileID: 6460574763867306039}
   m_Layer: 11
   m_Name: Elementalist
@@ -165,22 +164,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!58 &5359855456820018421
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1554324583470282421}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1.1355915}
-  serializedVersion: 2
-  m_Radius: 0.4455912
 --- !u!70 &6460574763867306039
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

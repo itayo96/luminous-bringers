@@ -43,8 +43,7 @@ GameObject:
   - component: {fileID: 1360063308311372400}
   - component: {fileID: 4228923464858640786}
   - component: {fileID: 1046122130234234279}
-  - component: {fileID: 6239628381768319959}
-  - component: {fileID: 7713692678170386076}
+  - component: {fileID: 3889092055006623928}
   m_Layer: 11
   m_Name: Ranger
   m_TagString: Player
@@ -150,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1046122130234234279}
   runSpeed: 22
-  jumpForce: 350
+  jumpForce: 320
   movementSmoothing: 0.05
   whatIsGround:
     serializedVersion: 2
@@ -185,8 +184,8 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!58 &6239628381768319959
-CircleCollider2D:
+--- !u!70 &3889092055006623928
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -198,32 +197,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.017828941, y: -1.0405146}
-  serializedVersion: 2
-  m_Radius: 0.5389581
---- !u!61 &7713692678170386076
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1360063308311372404}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.012696147, y: 0.14598644}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.12, y: 5.12}
-    newSize: {x: 5.12, y: 5.12}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.2608744, y: 2.3652956}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.0000011920929, y: -0.12770474}
+  m_Size: {x: 1.2249875, y: 2.8851593}
+  m_Direction: 0
