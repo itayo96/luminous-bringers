@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private float horizontalMove = 0f;
     private bool isPreAirborn = false;
     private float lastDistance = 0f;
+    private bool isInputEnabled = true;
 
     // Public Ground Members
     public LayerMask whatIsGround;
@@ -69,6 +70,16 @@ public class PlayerController : MonoBehaviour
     // -------------------
     void Update()
     {
+        // Don't check for input if disabled
+        if (!isInputEnabled)
+        {
+            horizontalMove = 0;
+
+            animator.SetFloat("Speed", 0);
+
+            return;
+        }
+
         // Get horizontal button for movement direction
         horizontalMove = Input.GetAxisRaw("Horizontal");
 
@@ -248,6 +259,11 @@ public class PlayerController : MonoBehaviour
     // ------
     // Events
     // ------
+    public void OnInputEnabling(bool flag)
+    {
+        isInputEnabled = flag;
+    }
+
     public virtual void OnGettingHit()
     {
         isBeingHurt = true;
