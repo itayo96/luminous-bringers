@@ -96,6 +96,12 @@ public class ElementalistController : PlayerController
         {
             nextManaRefresh = Time.time + manaRefreshRate;
             mana++;
+
+            // If reached max mana, set refresh to zero so next cast will decide when to refresh
+            if (mana == manaMaxCount)
+            {
+                nextManaRefresh = 0;
+            }
         }
     }
 
