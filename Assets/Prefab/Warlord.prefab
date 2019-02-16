@@ -161,7 +161,7 @@ MonoBehaviour:
   groundChecker: {fileID: 5009830992003639890}
   maxHealthCount: 3
   healthTexture: {fileID: 2800000, guid: e5c25d5b7efb95049855d8f997f03d07, type: 3}
-  jumpAnimTime: 0.25
+  jumpAnimTime: 0
   leftClickAnimTime: 0.85
   rightClickAnimTime: 0.85
   hurtAnimTime: 0.25
