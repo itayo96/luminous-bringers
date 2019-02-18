@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChiefController : MonoBehaviour
+public class ChiefController : EnemyController
 {
     enum StateMachine
     {
@@ -18,6 +18,9 @@ public class ChiefController : MonoBehaviour
     private Rigidbody2D rigidBody;
     public Animator animator;
 
+    // Player
+    public GameObject warlord, ranger, elementalist;
+
     // Private Movement Members
     private float runSpeed = 12f;
     private bool isFacingLeft = true;
@@ -27,15 +30,14 @@ public class ChiefController : MonoBehaviour
     // Public Stats Members
     public int phase = 1;
     public bool isPhaseWithPlatforms = true;
-    public const int phaseStartingHealth = 100;
-    public const int phaseTransitionHealth = 65;
+    public int phaseStartingHealth = 100;
+    public int phaseTransitionHealth = 65;
 
-    public const int warlordHealth = 100, warlordDamage = 1;
-    public const int rangerHealth = 93, rangerDamage = 2;
-    public const int elementalistHealth = 81, elementalistDamage = 4;
+    public int warlordPartHealth = 100;
+    public int rangerPartHealth = 93;
+    public int elementalistPartHealth = 81;
 
     // Private Stats Members
-    private int health = 100;
     private StateMachine state;
     private bool playerEnteredPlatform = false;
 
@@ -52,28 +54,53 @@ public class ChiefController : MonoBehaviour
     private bool isCasting = false;
     private bool isRoaring = false;
 
+    // Magic
+    public GameObject redPowerBallToRight, redPowerBallToLeft;
+    public GameObject bluePowerBallToRight, bluePowerBallToLeft;
+    private float fireBallWaitTime;
+    private float iceBallWaitTime;
+    private float xBallPosition = 0.7f;
+
+    // Platforms
+    public GameObject leftProtectivePlatform, middleProtectivePlatform, rightProtectivePlatform;
+
     // --------
     // Starters
     // --------
-    protected void Start()
+    new void Start()
     {
         health = phaseStartingHealth;
 
+        warlord.GetComponent<PlayerController>().OnInputEnabling(false);
+        elementalist.GetComponent<PlayerController>().OnInputEnabling(false);
+        ranger.GetComponent<PlayerController>().OnInputEnabling(false);
+
+        warlord.SetActive(false);
+        ranger.SetActive(false);
+        elementalist.SetActive(false);
+
         // Starting against who
-        switch (health)
+        if (health == warlordPartHealth)
         {
-            case warlordHealth:
-                state = StateMachine.against_warlord;
-                break;
-            case rangerHealth:
-                state = StateMachine.against_ranger;
-                break;
-            case elementalistHealth:
-                state = StateMachine.against_elementalist;
-                break;
-            default:
-                state = StateMachine.death;
-                break;
+            state = StateMachine.against_warlord;
+            warlord.SetActive(true);
+            warlord.GetComponent<PlayerController>().OnInputEnabling(true);
+        }
+        else if (health == rangerPartHealth)
+        {
+            state = StateMachine.against_ranger;
+            ranger.SetActive(true);
+            ranger.GetComponent<PlayerController>().OnInputEnabling(true);
+        }
+        else if (health == elementalistPartHealth)
+        {
+            state = StateMachine.against_elementalist;
+            elementalist.SetActive(true);
+            elementalist.GetComponent<PlayerController>().OnInputEnabling(true);
+        }
+        else
+        {
+            state = StateMachine.death;
         }
 
         startingX = transform.position.x;
@@ -85,7 +112,7 @@ public class ChiefController : MonoBehaviour
         }
     }
 
-    void Awake()
+    new void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
     }
@@ -93,14 +120,13 @@ public class ChiefController : MonoBehaviour
     // -------------------
     // Updaters & Checkers
     // -------------------
-    void Update() { }
+    new void Update() { }
 
-    void FixedUpdate()
+    new void FixedUpdate()
     {
         // Resolve hurt effect set hurt flag to false
         if (isBeingHurt)
         {
-            GotHit();
             isBeingHurt = false;
 
             StartCoroutine(OnHurtAnimation());
@@ -145,55 +171,73 @@ public class ChiefController : MonoBehaviour
         }
 
         // Transitions
-        switch (health)
+        if (!playerEnteredPlatform && 
+            (health == warlordPartHealth || health == rangerPartHealth || 
+             health == elementalistPartHealth || health == phaseTransitionHealth))
         {
-            case warlordHealth:
-                if (!playerEnteredPlatform)
-                {
-                    state = StateMachine.waiting_for_platform;
-                }
-                else
-                {
-                    state = StateMachine.against_warlord;
-                }
-                break;
+            switch (state)
+            {
+                case StateMachine.against_warlord:
+                    middleProtectivePlatform.SetActive(true);
+                    break;
+                case StateMachine.against_ranger:
+                    leftProtectivePlatform.SetActive(true);
+                    break;
+                case StateMachine.against_elementalist:
+                    rightProtectivePlatform.SetActive(true);
+                    break;
+            }
 
-            case rangerHealth:
-                if (!playerEnteredPlatform)
-                {
-                    state = StateMachine.waiting_for_platform;
-                }
-                else
-                {
-                    state = StateMachine.against_ranger;
-                }
-                break;
+            state = StateMachine.waiting_for_platform;
+            return;
+        }
 
-            case elementalistHealth:
-                if (!playerEnteredPlatform)
-                {
-                    state = StateMachine.waiting_for_platform;
-                }
-                else
-                {
-                    state = StateMachine.against_elementalist;
-                }
-                break;
+        if (health == warlordPartHealth)
+        {
+            warlord.SetActive(true);
+            warlord.GetComponent<PlayerController>().OnInputEnabling(true);
 
-            case phaseTransitionHealth:
-                if (!playerEnteredPlatform)
-                {
-                    state = StateMachine.waiting_for_platform;
-                }
-                else if (IsAlive())
-                {
-                    state = StateMachine.ultimate;
-                }
-                break;
+            elementalist.GetComponent<PlayerController>().OnInputEnabling(false);
+            ranger.GetComponent<PlayerController>().OnInputEnabling(false);
 
-            default:
+            state = StateMachine.against_warlord;
+            phaseStartingHealth = warlordPartHealth;
+        }
+        else if (health == rangerPartHealth)
+        {
+            ranger.SetActive(true);
+            ranger.GetComponent<PlayerController>().OnInputEnabling(true);
+
+            warlord.GetComponent<PlayerController>().OnInputEnabling(false);
+            elementalist.GetComponent<PlayerController>().OnInputEnabling(false);
+            
+            state = StateMachine.against_ranger;
+            phaseStartingHealth = rangerPartHealth;
+        }
+        else if (health == elementalistPartHealth)
+        {
+            elementalist.SetActive(true);
+            elementalist.GetComponent<PlayerController>().OnInputEnabling(true);
+
+            warlord.GetComponent<PlayerController>().OnInputEnabling(false);
+            ranger.GetComponent<PlayerController>().OnInputEnabling(false);
+
+            state = StateMachine.against_elementalist;
+            phaseStartingHealth = elementalistPartHealth;
+        }
+        else if (health == phaseTransitionHealth)
+        {
+            if (IsAlive())
+            {
+                state = StateMachine.ultimate;
+                warlord.SetActive(false);
+                elementalist.SetActive(false);
+                ranger.SetActive(false);
+            }
+            else
+            {
                 state = StateMachine.death;
-                break;
+            }
         }
 
         if (playerEnteredPlatform && isPhaseWithPlatforms)
@@ -230,7 +274,7 @@ public class ChiefController : MonoBehaviour
 
     void UltimateState()
     {
-        // TODO: Ultimate, switch OST and get ready to transition
+        // TODO: Ultimate, switch OST and get ready to transition to next phase scene
     }
 
     // -----------
@@ -247,11 +291,6 @@ public class ChiefController : MonoBehaviour
     // ------
     // Events
     // ------
-    public void OnGettingHit()
-    {
-        isBeingHurt = true;
-    }
-
     public void OnPlayerPlatform()
     {
         playerEnteredPlatform = true;
@@ -297,27 +336,39 @@ public class ChiefController : MonoBehaviour
     // ------
     // Stats
     // ------
-    protected void GotHit()
+    public override void GotSlashedBySword()
     {
-        if (health > 0)
+        if (state == StateMachine.against_warlord)
         {
-            switch (state)
-            {
-                case StateMachine.against_warlord:
-                    health -= warlordDamage;
-                    animator.SetBool("IsBeingHurt", true);
-                    break;
-                case StateMachine.against_ranger:
-                    health -= rangerDamage;
-                    animator.SetBool("IsBeingHurt", true);
-                    break;
-                case StateMachine.against_elementalist:
-                    health -= elementalistDamage;
-                    animator.SetBool("IsBeingHurt", true);
-                    break;
-                default:
-                    break;
-            }
+            OnHit(swordHitDamage);
+        }
+    }
+
+    public override void GotHitByElementalBall()
+    {
+        if (state == StateMachine.against_elementalist)
+        {
+            OnHit(elementalHitDamage);
+        }
+    }
+
+    public override void GotHitByArrow()
+    {
+        if (state == StateMachine.against_ranger)
+        {
+            OnHit(arrowHitDamage);
+        }
+    }
+
+    protected override void OnHit(int damage)
+    {
+        health -= damage;
+        animator.SetBool("IsBeingHurt", true);
+        isBeingHurt = true;
+
+        if (health <= 0)
+        {
+            state = StateMachine.death;
         }
     }
 
