@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     private float horizontalMove = 0f;
     private bool isPreAirborn = false;
     private float lastDistance = 0f;
-    private bool isInputEnabled = true;
+    protected bool isInputEnabled = true;
 
     // Public Ground Members
     public LayerMask whatIsGround;
@@ -329,6 +329,11 @@ public class PlayerController : MonoBehaviour
     // ---
     protected virtual void OnGUI()
     {
+        if (!isInputEnabled)
+        {
+            return;
+        }
+
         // Health
         Rect healthIcon = new Rect(50, 10, 70, 108);
         for (int i = 1; i <= health; i++)

@@ -42,10 +42,10 @@ public class ChiefController : EnemyController
     private bool playerEnteredPlatform = false;
 
     // Public Animation Timers
-    public float attackAnimTime = 0.7f;
-    public float castAnimTime = 0.7f;
-    public float roarAnimTime = 0.7f;
-    public float hurtAnimTime = 0.25f;
+    public float attackAnimTime = 0.95f;
+    public float castAnimTime = 0.95f;
+    public float roarAnimTime = 0.95f;
+    public float hurtAnimTime = 0.95f;
     public float deathAnimTime = 2f;
 
     // Animator Flags
@@ -55,8 +55,8 @@ public class ChiefController : EnemyController
     private bool isRoaring = false;
 
     // Magic
-    public GameObject redPowerBallToRight, redPowerBallToLeft;
-    public GameObject bluePowerBallToRight, bluePowerBallToLeft;
+    public GameObject redPowerBallToLeft;
+    public GameObject bluePowerBallToLeft;
     private float fireBallWaitTime;
     private float iceBallWaitTime;
     private float xBallPosition = 0.7f;
@@ -202,6 +202,12 @@ public class ChiefController : EnemyController
 
             state = StateMachine.against_warlord;
             phaseStartingHealth = warlordPartHealth;
+
+            if (!isPhaseWithPlatforms)
+            {
+                ranger.SetActive(false);
+                elementalist.SetActive(false);
+            }
         }
         else if (health == rangerPartHealth)
         {
@@ -213,6 +219,12 @@ public class ChiefController : EnemyController
             
             state = StateMachine.against_ranger;
             phaseStartingHealth = rangerPartHealth;
+
+            if (!isPhaseWithPlatforms)
+            {
+                warlord.SetActive(false);
+                elementalist.SetActive(false);
+            }
         }
         else if (health == elementalistPartHealth)
         {
@@ -224,6 +236,12 @@ public class ChiefController : EnemyController
 
             state = StateMachine.against_elementalist;
             phaseStartingHealth = elementalistPartHealth;
+
+            if (!isPhaseWithPlatforms)
+            {
+                warlord.SetActive(false);
+                ranger.SetActive(false);
+            }
         }
         else if (health == phaseTransitionHealth)
         {
@@ -253,7 +271,7 @@ public class ChiefController : EnemyController
     {
         // TODO: Check how far from player.
         //          If far - Move
-        //          If close - Attack
+        //          If close - Attack and then return to a random location between current and starting
     }
 
     void RangerState()
@@ -268,7 +286,7 @@ public class ChiefController : EnemyController
 
     void WaitingState()
     {
-        // TODO: If first time in waiting state, move to starting position
+        // TODO: If first time in waiting state, move to starting position (and face left)
         //              else, do nothing
     }
 
@@ -386,21 +404,21 @@ public class ChiefController : EnemyController
         style.fontSize = 36;
         style.fontStyle = FontStyle.Bold;
 
-        if (health > 75)
+        if (health > 60)
         {
-            style.normal.textColor = Color.red;
+            style.normal.textColor = Color.white;
         }
-        else if (health > 49)
-        {
-            style.normal.textColor = Color.yellow;
-        }
-        else if (health > 20)
+        else if (health > 32)
         {
             style.normal.textColor = Color.green;
         }
+        else if (health > 9)
+        {
+            style.normal.textColor = Color.yellow;
+        }
         else
         {
-            style.normal.textColor = Color.white;
+            style.normal.textColor = Color.red;
         }
 
         Vector2 pos = Camera.main.WorldToScreenPoint(transform.position);

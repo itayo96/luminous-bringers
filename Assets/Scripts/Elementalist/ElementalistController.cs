@@ -110,6 +110,11 @@ public class ElementalistController : PlayerController
     // ---
     protected override void OnGUI()
     {
+        if (!isInputEnabled)
+        {
+            return;
+        }
+
         base.OnGUI();
 
         // Mana
