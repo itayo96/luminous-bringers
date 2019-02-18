@@ -359,7 +359,7 @@ PrefabInstance:
     - target: {fileID: 4623696489699249237, guid: 82fe8e330e4b22743a2aba10cda731c1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.5
+      value: -2.3
       objectReference: {fileID: 0}
     - target: {fileID: 4623696489699249237, guid: 82fe8e330e4b22743a2aba10cda731c1,
         type: 3}
@@ -539,7 +539,7 @@ PrefabInstance:
     - target: {fileID: 4623696489699249237, guid: 82fe8e330e4b22743a2aba10cda731c1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.5
+      value: -2.3
       objectReference: {fileID: 0}
     - target: {fileID: 4623696489699249237, guid: 82fe8e330e4b22743a2aba10cda731c1,
         type: 3}
@@ -586,11 +586,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5694062482229317286, guid: 82fe8e330e4b22743a2aba10cda731c1,
-        type: 3}
-      propertyPath: onPlayerCollision.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1497349551}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82fe8e330e4b22743a2aba10cda731c1, type: 3}
 --- !u!1 &774743638
@@ -2036,7 +2031,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 30
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -2097,7 +2092,7 @@ PrefabInstance:
     - target: {fileID: 1554324583470282421, guid: c7c50f6187b91a5438f7d67078ad198c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4919210345991748446, guid: c7c50f6187b91a5438f7d67078ad198c,
         type: 3}
@@ -2496,7 +2491,7 @@ PrefabInstance:
     - target: {fileID: 4623696489699249237, guid: 82fe8e330e4b22743a2aba10cda731c1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.5
+      value: -2.3
       objectReference: {fileID: 0}
     - target: {fileID: 4623696489699249237, guid: 82fe8e330e4b22743a2aba10cda731c1,
         type: 3}

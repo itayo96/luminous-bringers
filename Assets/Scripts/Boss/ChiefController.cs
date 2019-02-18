@@ -71,13 +71,13 @@ public class ChiefController : EnemyController
     {
         health = phaseStartingHealth;
 
-        warlord.GetComponent<PlayerController>().OnInputEnabling(false);
-        elementalist.GetComponent<PlayerController>().OnInputEnabling(false);
-        ranger.GetComponent<PlayerController>().OnInputEnabling(false);
-
         warlord.SetActive(false);
         ranger.SetActive(false);
         elementalist.SetActive(false);
+
+        warlord.GetComponent<PlayerController>().OnInputEnabling(false);
+        elementalist.GetComponent<PlayerController>().OnInputEnabling(false);
+        ranger.GetComponent<PlayerController>().OnInputEnabling(false);
 
         // Starting against who
         if (health == warlordPartHealth)
