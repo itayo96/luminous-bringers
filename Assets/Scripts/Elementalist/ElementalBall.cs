@@ -53,7 +53,7 @@ public class ElementalBall : MonoBehaviour
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            collision.gameObject.GetComponent<EnemyController>().GotHitByElementalBall();
+            collision.gameObject.GetComponent<EnemyController>().GotHitByElementalBall(gameObject.tag);
             Destroy(gameObject, 0);
         }
     }

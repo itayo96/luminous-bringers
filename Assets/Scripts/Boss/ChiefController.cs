@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ChiefController : EnemyController
 {
@@ -11,6 +13,7 @@ public class ChiefController : EnemyController
         against_elementalist,
         waiting_for_platform,
         ultimate,
+        waiting_for_ultimate,
         death,
     }
 
@@ -20,6 +23,9 @@ public class ChiefController : EnemyController
 
     // Player
     public GameObject warlord, ranger, elementalist;
+
+    // Main Camera
+    public GameObject mainCamera;
 
     // Private Movement Members
     private float runSpeed = 12f;
@@ -63,6 +69,10 @@ public class ChiefController : EnemyController
 
     // Platforms
     public GameObject leftProtectivePlatform, middleProtectivePlatform, rightProtectivePlatform;
+
+    // Ultimate
+    public GameObject fadeOut;
+    public float enrageInSeconds;
 
     // --------
     // Starters
@@ -142,6 +152,16 @@ public class ChiefController : EnemyController
             return;
         }
 
+        // Enrage
+        if (state != StateMachine.ultimate && 
+            state != StateMachine.waiting_for_ultimate && 
+            enrageInSeconds != 0 && 
+            Time.timeSinceLevelLoad >= enrageInSeconds)
+        {
+            state = StateMachine.ultimate;
+            enrageInSeconds = 0;
+        }
+
         // Resolve current state
         switch (state)
         {
@@ -157,9 +177,12 @@ public class ChiefController : EnemyController
             case StateMachine.waiting_for_platform:
                 WaitingState();
                 break;
+            case StateMachine.waiting_for_ultimate:
+                return;
             case StateMachine.ultimate:
+                state = StateMachine.waiting_for_ultimate;
                 UltimateState();
-                break;
+                return;
             case StateMachine.death:
             default:
                 break;
@@ -208,6 +231,10 @@ public class ChiefController : EnemyController
                 ranger.SetActive(false);
                 elementalist.SetActive(false);
             }
+            else
+            {
+                playerEnteredPlatform = false;
+            }
         }
         else if (health == rangerPartHealth)
         {
@@ -224,6 +251,10 @@ public class ChiefController : EnemyController
             {
                 warlord.SetActive(false);
                 elementalist.SetActive(false);
+            }
+            else
+            {
+                playerEnteredPlatform = false;
             }
         }
         else if (health == elementalistPartHealth)
@@ -242,25 +273,24 @@ public class ChiefController : EnemyController
                 warlord.SetActive(false);
                 ranger.SetActive(false);
             }
+            else
+            {
+                playerEnteredPlatform = false;
+            }
         }
         else if (health == phaseTransitionHealth)
         {
             if (IsAlive())
             {
-                state = StateMachine.ultimate;
-                warlord.SetActive(false);
-                elementalist.SetActive(false);
-                ranger.SetActive(false);
+                if (state != StateMachine.waiting_for_ultimate)
+                {
+                    state = StateMachine.ultimate;
+                }
             }
             else
             {
                 state = StateMachine.death;
             }
-        }
-
-        if (playerEnteredPlatform && isPhaseWithPlatforms)
-        {
-            playerEnteredPlatform = false;
         }
     }
 
@@ -272,16 +302,22 @@ public class ChiefController : EnemyController
         // TODO: Check how far from player.
         //          If far - Move
         //          If close - Attack and then return to a random location between current and starting
+
+        health = 93;
     }
 
     void RangerState()
     {
         // TODO: Summon the dance components
+
+        health = 65;
     }
 
     void ElementalistState()
     {
         // TODO: Summon the power ball combo (+ audio + text)
+
+        health = 77;
     }
 
     void WaitingState()
@@ -292,7 +328,91 @@ public class ChiefController : EnemyController
 
     void UltimateState()
     {
-        // TODO: Ultimate, switch OST and get ready to transition to next phase scene
+        warlord.GetComponent<PlayerController>().OnInputEnabling(false);
+        elementalist.GetComponent<PlayerController>().OnInputEnabling(false);
+        ranger.GetComponent<PlayerController>().OnInputEnabling(false);
+
+        // Switch OST
+        mainCamera.GetComponent<AudioSource>().Stop();
+        GetComponent<AudioSource>().Play();
+
+        animator.SetBool("IsRoaring", true);
+        StartCoroutine(OnRoarAnimation());
+
+        StartCoroutine(UltimateAttack());
+    }
+
+    IEnumerator UltimateAttack()
+    {
+        yield return new WaitForSeconds(5f);
+
+        animator.SetBool("IsRoaring", true);
+        StartCoroutine(OnRoarAnimation());
+
+        yield return new WaitForSeconds(5f);
+
+        animator.SetBool("IsRoaring", true);
+        StartCoroutine(OnRoarAnimation());
+
+        // Screen shattering
+        Vector3 initialPosition = mainCamera.transform.localPosition;
+        for (int i = 0; i < 50; i++)
+        {
+            mainCamera.transform.localPosition = initialPosition + Random.insideUnitSphere * 0.4f;
+            yield return new WaitForSeconds(0.1f);
+        }
+        mainCamera.transform.localPosition = initialPosition;
+
+        // Show some meteor coming down
+        mainCamera.transform.localPosition = mainCamera.transform.localPosition + new Vector3(0, -12.13f, 0);
+
+        yield return new WaitForSeconds(10f);
+
+        // Remove boss from the screen
+        GetComponent<Animator>().enabled = false;
+        GetComponent<SpriteRenderer>().sprite = null;
+
+        // Return to main camera
+        mainCamera.transform.localPosition = initialPosition;
+
+        for (int i = 0; i < 70; i++)
+        {
+            mainCamera.transform.localPosition = initialPosition + Random.insideUnitSphere * 0.4f;
+            yield return new WaitForSeconds(0.1f);
+        }
+        mainCamera.transform.localPosition = initialPosition;
+
+        // White screen
+        for (int i = 0; i < 30; i++)
+        {
+            mainCamera.transform.localPosition = initialPosition + Random.insideUnitSphere * 0.4f;
+            fadeOut.GetComponent<RectTransform>().localScale += new Vector3(0.5f, 0.5f, 0.5f);
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        fadeOut.GetComponent<Image>().material = null;
+
+        yield return new WaitForSeconds(6.4f);
+
+        if (enrageInSeconds == 0f)
+        {
+            yield return new WaitForSeconds(6.5f);
+        }
+
+        // Transition based on player's situation
+        // Moving to second phase if all three platforms are protecting the player,
+        // else (Timer is up for either phase one or phase two) restart first scene. 
+        if (phase == 1 &&
+            leftProtectivePlatform.GetComponent<ProtectivePlatform>().WasUsed() &&
+            middleProtectivePlatform.GetComponent<ProtectivePlatform>().WasUsed() &&
+            rightProtectivePlatform.GetComponent<ProtectivePlatform>().WasUsed())
+        {
+            SceneManager.LoadScene("BossSecondPhaseScene");
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
     // -----------
@@ -362,7 +482,7 @@ public class ChiefController : EnemyController
         }
     }
 
-    public override void GotHitByElementalBall()
+    public override void GotHitByElementalBall(string ballTag)
     {
         if (state == StateMachine.against_elementalist)
         {
@@ -400,6 +520,11 @@ public class ChiefController : EnemyController
     // ---
     void OnGUI()
     {
+        if (state == StateMachine.ultimate || state == StateMachine.waiting_for_ultimate)
+        {
+            return;
+        }
+
         GUIStyle style = new GUIStyle();
         style.fontSize = 36;
         style.fontStyle = FontStyle.Bold;

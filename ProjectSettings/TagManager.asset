@@ -9,6 +9,7 @@ TagManager:
   - Arrow
   - RedPowerBall
   - BluePowerBall
+  - UI
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - OneWayPlatform
   - Player
   - Enemy
-  - 
+  - ElementalBall
   - 
   - Background
   - 

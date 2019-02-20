@@ -12,10 +12,12 @@ public class Dialog : MonoBehaviour
 
     // Public Text Members
     public float typingSpeed = 0.02f;
+    public float timeout = 5f;
 
     // Private Text Members
     private string[] sentences;
     private int index;
+    private float lastRefreshTime = 0f;
 
     // --------
     // Starters
@@ -24,6 +26,17 @@ public class Dialog : MonoBehaviour
     {
         sentences = null;
         index = 0;
+    }
+
+    // -------------------
+    // Updaters & Checkers
+    // -------------------
+    void Update()
+    {
+        if (continueButton.activeSelf && Time.time >= lastRefreshTime + timeout)
+        {
+            OnNextSentence();
+        }
     }
 
     // -----------
@@ -38,6 +51,8 @@ public class Dialog : MonoBehaviour
         textDisplay.text = "";
         sentences = instructions;
         index = 0;
+
+        lastRefreshTime = Time.time;
 
         StartCoroutine(Type());
     }
@@ -72,6 +87,8 @@ public class Dialog : MonoBehaviour
     {
         // Setting continue button to false after clicking it
         continueButton.SetActive(false);
+
+        lastRefreshTime = Time.time;
 
         // Display next sentence if there is one, else finish
         if (index < sentences.Length - 1)

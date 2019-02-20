@@ -57,10 +57,17 @@ public class PowerBall : MonoBehaviour
             collision.gameObject.GetComponent<PlayerController>().OnGettingHit();
         }
 
-        // Colliding with Counter's Tag
-        if (collision.gameObject.tag == counterNameTag)
+        // Colliding with another cast ball
+        if (collision.gameObject.layer == LayerMask.NameToLayer("ElementalBall"))
         {
-            Destroy(gameObject, 0);
+            string colTag = collision.gameObject.tag;
+            Destroy(collision.gameObject, 0);
+            
+            // Colliding with counter
+            if (colTag == counterNameTag)
+            {
+                Destroy(gameObject, 0);
+            }
         }
     }
 }

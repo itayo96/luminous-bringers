@@ -27,7 +27,7 @@ public class EnemyController : MonoBehaviour
         OnHit(swordHitDamage);
     }
 
-    public virtual void GotHitByElementalBall()
+    public virtual void GotHitByElementalBall(string ballTag)
     {
         OnHit(elementalHitDamage);
     }

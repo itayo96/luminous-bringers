@@ -19,6 +19,11 @@ public class ProtectivePlatform : MonoBehaviour
         lineRenderer.useWorldSpace = true;
     }
 
+    public bool WasUsed()
+    {
+        return wasUsed;
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (!wasUsed && collision.gameObject.layer == LayerMask.NameToLayer("Player"))
