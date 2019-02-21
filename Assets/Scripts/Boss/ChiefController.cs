@@ -160,6 +160,7 @@ public class ChiefController : EnemyController
         {
             state = StateMachine.ultimate;
             enrageInSeconds = 0;
+            fadeOut.GetComponent<Image>().color = Color.black;
         }
 
         // Resolve current state
@@ -411,7 +412,7 @@ public class ChiefController : EnemyController
         }
         else
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene("BossFirstPhaseScene");
         }
     }
 

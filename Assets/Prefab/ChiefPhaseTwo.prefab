@@ -151,6 +151,7 @@ MonoBehaviour:
   middleProtectivePlatform: {fileID: 0}
   rightProtectivePlatform: {fileID: 0}
   fadeOut: {fileID: 0}
+  enrageInSeconds: 240
 --- !u!95 &4836154357209233375
 Animator:
   serializedVersion: 3
