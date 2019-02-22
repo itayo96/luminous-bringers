@@ -165,6 +165,9 @@ MonoBehaviour:
   rightClickAnimTime: 0.85
   hurtAnimTime: 0.25
   deathAnimTime: 2
+  arrowToRight: {fileID: 6285037841945601156, guid: b32dacd863b6a3d43814b43394b8100a,
+    type: 3}
+  arrowToLeft: {fileID: 789392391, guid: 7d613aa8cbd748b41a60a11f5cbda9ae, type: 3}
 --- !u!95 &1046122130234234279
 Animator:
   serializedVersion: 3
