@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -17,11 +18,21 @@ public class ChiefController : EnemyController
         death,
     }
 
+    [System.Serializable]
+    public struct Combo
+    {
+        public string firstBall;
+        public string secondBall;
+        public string text;
+        public AudioSource voice;
+        public bool wasUsed;
+    }
+
     // Components
     private Rigidbody2D rigidBody;
     public Animator animator;
 
-    // Player
+    // Player Objects
     public GameObject warlord, ranger, elementalist;
 
     // Main Camera
@@ -46,6 +57,8 @@ public class ChiefController : EnemyController
     // Private Stats Members
     private StateMachine state;
     private bool playerEnteredPlatform = false;
+    private bool canBeAttacked = false;
+    private string damagingElementalBallTag = "";
 
     // Public Animation Timers
     public float attackAnimTime = 0.95f;
@@ -54,25 +67,21 @@ public class ChiefController : EnemyController
     public float hurtAnimTime = 0.95f;
     public float deathAnimTime = 2f;
 
-    // Animator Flags
-    private bool isBeingHurt = false;
-    private bool isAttacking = false;
-    private bool isCasting = false;
-    private bool isRoaring = false;
-
-    // Magic
-    public GameObject redPowerBallToLeft;
-    public GameObject bluePowerBallToLeft;
-    private float fireBallWaitTime;
-    private float iceBallWaitTime;
-    private float xBallPosition = 0.7f;
-
     // Platforms
     public GameObject leftProtectivePlatform, middleProtectivePlatform, rightProtectivePlatform;
 
     // Ultimate
     public GameObject fadeOut;
     public float enrageInSeconds;
+
+    // Magic
+    public GameObject redPowerBallToLeft;
+    public GameObject bluePowerBallToLeft;
+    public Dialog dialog;
+    public Combo[] combos;
+
+    private float nextComboTime = 0f;
+    private float comboRefreshRate = 15f;
 
     // --------
     // Starters
@@ -130,28 +139,10 @@ public class ChiefController : EnemyController
     // -------------------
     // Updaters & Checkers
     // -------------------
-    new void Update() { }
+    new void FixedUpdate() { }
 
-    new void FixedUpdate()
+    new void Update()
     {
-        // Resolve hurt effect set hurt flag to false
-        if (isBeingHurt)
-        {
-            isBeingHurt = false;
-
-            StartCoroutine(OnHurtAnimation());
-        }
-
-        // Resolve death due to danger zone or enough hits
-        if (!IsAlive())
-        {
-            animator.SetBool("IsAlive", false);
-            state = StateMachine.death;
-
-            StartCoroutine(OnDeathAnimation());
-            return;
-        }
-
         // Enrage
         if (state != StateMachine.ultimate && 
             state != StateMachine.waiting_for_ultimate && 
@@ -186,7 +177,7 @@ public class ChiefController : EnemyController
                 return;
             case StateMachine.death:
             default:
-                break;
+                return;
         }
 
         if (health == phaseStartingHealth)
@@ -268,6 +259,9 @@ public class ChiefController : EnemyController
 
             state = StateMachine.against_elementalist;
             phaseStartingHealth = elementalistPartHealth;
+            nextComboTime = Time.time + 2f;
+            dialog.timeout = 7f; // Setting dialog timeout to be 1.5 seconds
+            dialog.player = null;
 
             if (!isPhaseWithPlatforms)
             {
@@ -304,26 +298,115 @@ public class ChiefController : EnemyController
         //          If far - Move
         //          If close - Attack and then return to a random location between current and starting
 
-        health = 93;
+        if (phase == 1)
+        {
+            health = 93;
+        }
+        else
+        {
+            health = 1;
+        }
+
+        canBeAttacked = true;
     }
 
     void RangerState()
     {
         // TODO: Summon the dance components
 
-        health = 65;
+        if (phase == 1)
+        {
+            health = 65;
+        }
+        else
+        {
+            health = 11;
+        }
     }
 
     void ElementalistState()
     {
-        // TODO: Summon the power ball combo (+ audio + text)
+        // TODO Check if enough time had passed since last combo
+        if (Time.time < nextComboTime)
+        {
+            return;
+        }
 
-        health = 77;
+        // Choose randomly from possible combos
+        //      If phase 1: remove the used combo from the list
+        int chosenComboIndex;
+        List<int> availableComboIndices = new List<int>();
+
+        for (int i = 0; i < combos.Length; i++)
+        {
+            if (!combos[i].wasUsed)
+            {
+                availableComboIndices.Add(i);
+            }
+        }
+
+        if (availableComboIndices.Count == 0) // If all was used, they all are available
+        {
+            availableComboIndices.AddRange(Enumerable.Range(0, combos.Length));
+        }
+
+        chosenComboIndex = availableComboIndices[Random.Range(0, availableComboIndices.Count)];
+
+        dialog.textDisplay.color = Color.black;
+        if (phase == 1)
+        {
+            combos[chosenComboIndex].wasUsed = true;
+            dialog.textDisplay.color = (combos[chosenComboIndex].firstBall == "red") ? Color.red : Color.blue;
+        }
+
+        // Text
+        dialog.Display(combos[chosenComboIndex].text);
+
+        // OST
+        if (combos[chosenComboIndex].voice != null)
+        {
+            combos[chosenComboIndex].voice.Play();
+        }
+
+        nextComboTime = Time.time + comboRefreshRate;
+
+        // Can be attacked now by opposite of the first ball
+        damagingElementalBallTag = (combos[chosenComboIndex].firstBall == "red") ? "IceBall" : "FireBall";
+        canBeAttacked = true;
+
+        // Cast the combo
+        StartCoroutine(CastCombo(combos[chosenComboIndex].firstBall, combos[chosenComboIndex].secondBall));
+
+    }
+
+    IEnumerator CastCombo(string first, string second)
+    {
+        // Wait
+        yield return new WaitForSeconds(1f);
+
+        // Cast first ball
+        Cast(first);
+
+        // Wait
+        yield return new WaitForSeconds(7f);
+
+        // Do not finish combo if moving to next phase
+        if (state == StateMachine.against_elementalist)
+        {
+            // Cast second ball
+            Cast(second);
+
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        // Cannot be attacked anymore
+        damagingElementalBallTag = "";
+        canBeAttacked = false;
     }
 
     void WaitingState()
     {
-        // TODO: If first time in waiting state, move to starting position (and face left)
+        // TODO: If first time in waiting state, move fast to starting position (and face left)
         //              else, do nothing
     }
 
@@ -346,6 +429,10 @@ public class ChiefController : EnemyController
     IEnumerator UltimateAttack()
     {
         yield return new WaitForSeconds(5f);
+
+        dialog.textDisplay.color = Color.black;
+        dialog.timeout = 4f;
+        dialog.Display("RAAAA!!! MEET YOUR MAKER!");
 
         animator.SetBool("IsRoaring", true);
         StartCoroutine(OnRoarAnimation());
@@ -423,7 +510,19 @@ public class ChiefController : EnemyController
 
     void Attack() { }
 
-    void Cast() { }
+    void Cast(string powerBall)
+    {
+        animator.SetBool("IsCasting", true);
+
+        if (powerBall == "blue")
+        {
+            StartCoroutine(OnCastAnimation(bluePowerBallToLeft));
+        }
+        else if (powerBall == "red")
+        {
+            StartCoroutine(OnCastAnimation(redPowerBallToLeft));
+        }
+    }
 
     void Roar() { }
 
@@ -442,9 +541,14 @@ public class ChiefController : EnemyController
         animator.SetBool("IsAttacking", false);
     }
 
-    IEnumerator OnCastAnimation()
+    IEnumerator OnCastAnimation(GameObject powerBall)
     {
         yield return new WaitForSeconds(castAnimTime);
+
+        Vector2 powerBallPosition = transform.position;
+
+        powerBallPosition += new Vector2(-2f, -0.5f);
+        Instantiate(powerBall, powerBallPosition, Quaternion.identity);
 
         animator.SetBool("IsCasting", false);
     }
@@ -485,6 +589,12 @@ public class ChiefController : EnemyController
 
     public override void GotHitByElementalBall(string ballTag)
     {
+        // Can be damaged only by wanted ball tag
+        if (damagingElementalBallTag != ballTag)
+        {
+            return;
+        }
+
         if (state == StateMachine.against_elementalist)
         {
             OnHit(elementalHitDamage);
@@ -501,13 +611,27 @@ public class ChiefController : EnemyController
 
     protected override void OnHit(int damage)
     {
+        if (!canBeAttacked)
+        {
+            return;
+        }
+
         health -= damage;
         animator.SetBool("IsBeingHurt", true);
-        isBeingHurt = true;
+        StartCoroutine(OnHurtAnimation());
 
         if (health <= 0)
         {
+            if (!animator.GetBool("IsAlive"))
+            {
+                return;
+            }
+
+            animator.SetBool("IsAlive", false);
             state = StateMachine.death;
+
+            StartCoroutine(OnDeathAnimation());
+            return;
         }
     }
 

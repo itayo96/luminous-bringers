@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     // Public Stats Members
     public int maxHealthCount = 3;
     public Texture2D healthTexture;
+    public string sceneToLoadOnDeath = "";
 
     // Private Stats Members
     private int health = 3;
@@ -303,7 +304,14 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(deathAnimTime);
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (sceneToLoadOnDeath == "")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        else
+        {
+            SceneManager.LoadScene(sceneToLoadOnDeath);
+        }
     }
 
     // ------

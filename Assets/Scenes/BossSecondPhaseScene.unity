@@ -1553,6 +1553,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8105007211640457965, guid: c7c50f6187b91a5438f7d67078ad198c,
+        type: 3}
+      propertyPath: sceneToLoadOnDeath
+      value: BossFirstPhaseScene
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7c50f6187b91a5438f7d67078ad198c, type: 3}
 --- !u!1 &1083178486 stripped
@@ -1993,6 +1998,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4228923464858640786, guid: bca7441a708424d4db8d75f0d2bc9448,
+        type: 3}
+      propertyPath: sceneToLoadOnDeath
+      value: BossFirstPhaseScene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca7441a708424d4db8d75f0d2bc9448, type: 3}
@@ -2600,6 +2610,11 @@ PrefabInstance:
       propertyPath: fadeOut
       value: 
       objectReference: {fileID: 528508164}
+    - target: {fileID: 7795631962570977951, guid: 2e8682d459bd36e45a04303eb77efff3,
+        type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 519203673}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e8682d459bd36e45a04303eb77efff3, type: 3}
 --- !u!1001 &1605630838851019362
@@ -3302,6 +3317,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009830990719952354, guid: 52918dcaea1e6a94e9b0250dca973883,
+        type: 3}
+      propertyPath: sceneToLoadOnDeath
+      value: BossFirstPhaseScene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52918dcaea1e6a94e9b0250dca973883, type: 3}

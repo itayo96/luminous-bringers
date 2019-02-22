@@ -55,6 +55,7 @@ public class PowerBall : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             collision.gameObject.GetComponent<PlayerController>().OnGettingHit();
+            Destroy(gameObject, 0);
         }
 
         // Colliding with another cast ball

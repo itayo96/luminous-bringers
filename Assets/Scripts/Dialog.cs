@@ -45,11 +45,27 @@ public class Dialog : MonoBehaviour
     public void Display(string[] instructions)
     {
         // Set player input to disabled, to stop it from moving while reading
-        player.OnInputEnabling(false);
+        if (player != null)
+        {
+            player.OnInputEnabling(false);
+        }
 
         // Setup for typing text
         textDisplay.text = "";
         sentences = instructions;
+        index = 0;
+
+        lastRefreshTime = Time.time;
+
+        StartCoroutine(Type());
+    }
+
+    public void Display(string instruction)
+    {
+        // Setup for typing text
+        textDisplay.text = "";
+        sentences = new string[1];
+        sentences[0] = instruction;
         index = 0;
 
         lastRefreshTime = Time.time;
@@ -103,7 +119,10 @@ public class Dialog : MonoBehaviour
             continueButton.SetActive(false);
 
             // Enable back the player's input checking
-            player.OnInputEnabling(true);
+            if (player != null)
+            {
+                player.OnInputEnabling(true);
+            }
         }
     }
 }
