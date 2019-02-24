@@ -332,7 +332,7 @@ public class PlayerController : MonoBehaviour
     protected virtual void OnGUI()
     {
         // Health
-        Rect healthIcon = new Rect(50, 10, 70, 108);
+        Rect healthIcon = new Rect(20, 93, 25, 25);
         for (int i = 1; i <= health; i++)
         {
             GUI.DrawTexture(healthIcon, healthTexture);
