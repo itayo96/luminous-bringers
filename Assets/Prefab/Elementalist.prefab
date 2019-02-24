@@ -129,15 +129,15 @@ MonoBehaviour:
     m_Bits: 16
   groundChecker: {fileID: 2798782803845532977}
   maxHealthCount: 3
-  healthTexture: {fileID: 2800000, guid: e5c25d5b7efb95049855d8f997f03d07, type: 3}
-  jumpAnimTime: 0.25
+  healthTexture: {fileID: 2800000, guid: fc31e9a4c87f028449b4a780b2a298a6, type: 3}
+  jumpAnimTime: 0
   leftClickAnimTime: 0.85
   rightClickAnimTime: 0.85
   hurtAnimTime: 0.25
   deathAnimTime: 2
   manaMaxCount: 3
   manaRefreshRate: 5
-  manaTexture: {fileID: 2800000, guid: 9fa261f564c567d449f11be8fc32df99, type: 3}
+  manaTexture: {fileID: 2800000, guid: b0e66a5eacaa4344c90c4a755c7edd74, type: 3}
   fireBallToRight: {fileID: 6285037841945601156, guid: 656fcfa3edfe16f44a549f19f030d7f8,
     type: 3}
   fireBallToLeft: {fileID: 789392391, guid: 405438d87018ca9469f868c1f6998393, type: 3}

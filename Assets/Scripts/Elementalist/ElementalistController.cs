@@ -113,7 +113,7 @@ public class ElementalistController : PlayerController
         base.OnGUI();
 
         // Mana
-        Rect manaIcon = new Rect(Screen.width - 100, 10, 70, 108);
+        Rect manaIcon = new Rect(240, 93, 25, 25);
         for (int i = 1; i <= mana; i++)
         {
             GUI.DrawTexture(manaIcon, manaTexture);

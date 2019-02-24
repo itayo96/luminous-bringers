@@ -217,7 +217,7 @@ public class PlayerController : MonoBehaviour
                 else if (isJumping)
                 {
                     // If the hit distance is not less than the lass distance, then jump (he isn't going to go any lower)
-                    animator.SetBool("IsJumping", true);
+                    
 
                     isPreAirborn = true;
 
@@ -273,9 +273,11 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(jumpAnimTime);
 
-        rigidBody.AddForce(new Vector2(0f, jumpForce));
+        rigidBody.AddForce(Vector2.up * jumpForce);
         isPreAirborn = false;
         lastDistance = 100f;
+        
+        animator.SetBool("IsJumping", true);
     }
 
     IEnumerator OnLeftClickAnimation()
@@ -330,7 +332,7 @@ public class PlayerController : MonoBehaviour
     protected virtual void OnGUI()
     {
         // Health
-        Rect healthIcon = new Rect(50, 10, 70, 108);
+        Rect healthIcon = new Rect(20, 93, 25, 25);
         for (int i = 1; i <= health; i++)
         {
             GUI.DrawTexture(healthIcon, healthTexture);
