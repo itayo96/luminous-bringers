@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1235019669210145176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7738737991099023727}
+  m_Layer: 11
+  m_Name: AttackPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7738737991099023727
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235019669210145176}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.22, y: -0.55, z: 0.11100343}
+  m_LocalScale: {x: 0.33333328, y: 0.33333328, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4433505090976555234}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4433505090976555236
 GameObject:
   m_ObjectHideFlags: 0
@@ -37,6 +67,7 @@ RectTransform:
   - {fileID: 3780810214051846859}
   - {fileID: 3297268945513110179}
   - {fileID: 5686730304862743209}
+  - {fileID: 7738737991099023727}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -135,6 +166,7 @@ MonoBehaviour:
   ranger: {fileID: 0}
   elementalist: {fileID: 0}
   mainCamera: {fileID: 0}
+  runSpeed: 12
   phase: 1
   isPhaseWithPlatforms: 1
   phaseStartingHealth: 100
@@ -142,16 +174,18 @@ MonoBehaviour:
   warlordPartHealth: 100
   rangerPartHealth: 77
   elementalistPartHealth: 93
-  attackAnimTime: 0.95
+  attackAnimTime: 1.1
   castAnimTime: 0.95
   roarAnimTime: 0.95
   hurtAnimTime: 0.95
-  deathAnimTime: 2
+  deathAnimTime: 2.5
   leftProtectivePlatform: {fileID: 0}
   middleProtectivePlatform: {fileID: 0}
   rightProtectivePlatform: {fileID: 0}
   fadeOut: {fileID: 0}
-  enrageInSeconds: 137
+  enrageInSeconds: 200
+  axeSlashRange: 1.7
+  attackPosition: {fileID: 7738737991099023727}
   redPowerBallToLeft: {fileID: 789392391, guid: 0f989ba998d240c4d94c6f8f55e89b28,
     type: 3}
   bluePowerBallToLeft: {fileID: 789392391, guid: d71ddf95c06358d488c680ee4f25fabb,

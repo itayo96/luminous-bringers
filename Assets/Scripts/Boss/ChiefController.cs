@@ -39,7 +39,9 @@ public class ChiefController : EnemyController
     public GameObject mainCamera;
 
     // Private Movement Members
-    private float runSpeed = 12f;
+    public float runSpeed = 12f;
+    private float horizontalMove = 0f;
+    private float moveBeforeHurt = 0f;
     private bool isFacingLeft = true;
     private float startingX = 0f;
     private float startingY = 0f;
@@ -61,7 +63,7 @@ public class ChiefController : EnemyController
     private string damagingElementalBallTag = "";
 
     // Public Animation Timers
-    public float attackAnimTime = 0.95f;
+    public float attackAnimTime = 5f;
     public float castAnimTime = 0.95f;
     public float roarAnimTime = 0.95f;
     public float hurtAnimTime = 0.95f;
@@ -74,15 +76,21 @@ public class ChiefController : EnemyController
     public GameObject fadeOut;
     public float enrageInSeconds;
 
+    private float nextActionTime = 0f;
+
+    // Axe
+    public float axeSlashRange = 1.7f;
+    public Transform attackPosition;
+    private float axeSlashRefreshRate = 6f;
+
     // Magic
     public GameObject redPowerBallToLeft;
     public GameObject bluePowerBallToLeft;
     public Dialog dialog;
     public Combo[] combos;
 
-    private float nextComboTime = 0f;
     private float comboRefreshRate = 15f;
-
+    
     // --------
     // Starters
     // --------
@@ -203,6 +211,7 @@ public class ChiefController : EnemyController
                     break;
             }
 
+            canBeAttacked = false;
             state = StateMachine.waiting_for_platform;
             return;
         }
@@ -259,7 +268,7 @@ public class ChiefController : EnemyController
 
             state = StateMachine.against_elementalist;
             phaseStartingHealth = elementalistPartHealth;
-            nextComboTime = Time.time + 2f;
+            nextActionTime = Time.time + 2f;
             dialog.timeout = 7f; // Setting dialog timeout to be 1.5 seconds
             dialog.player = null;
 
@@ -294,20 +303,57 @@ public class ChiefController : EnemyController
     // -----------
     void WarlordState()
     {
-        // TODO: Check how far from player.
-        //          If far - Move
-        //          If close - Attack and then return to a random location between current and starting
-
-        if (phase == 1)
+        if (animator.GetBool("IsBeingHurt"))
         {
-            health = 93;
-        }
-        else
-        {
-            health = 1;
+            if (Time.time >= nextActionTime)
+            {
+                nextActionTime = Time.time + 1;
+            }
+            return;
         }
 
-        canBeAttacked = true;
+        Move();
+
+        // Stop for wait time or reached starting x position
+        if (Time.time >= nextActionTime - 0.5f && Time.time < nextActionTime)
+        {
+            horizontalMove = 0;
+        }
+
+        if (transform.position.x >= startingX)
+        {
+            horizontalMove = 0;
+            nextActionTime = Time.time - 1f;
+        }
+
+        // Check if enough time had passed since last sword slash then just keep walking
+        if (Time.time < nextActionTime)
+        {
+            return;
+        }
+
+        nextActionTime = 0f;
+
+        // On far
+        if (Vector3.Distance(attackPosition.transform.position, warlord.transform.position) >= axeSlashRange)
+        {
+            // Move towards the player
+            horizontalMove = -1;
+
+            // Cannot be attacked
+            canBeAttacked = false;
+        }
+        else // On close
+        {
+            horizontalMove = 0;
+            animator.SetFloat("Speed", 0);
+
+            // Attack
+            Attack();
+
+            // Wait alittle (random time) till next slash / next trying to reach the player
+            nextActionTime = Time.time + Random.Range(axeSlashRefreshRate - 4f, axeSlashRefreshRate + 1f);
+        }
     }
 
     void RangerState()
@@ -326,8 +372,8 @@ public class ChiefController : EnemyController
 
     void ElementalistState()
     {
-        // TODO Check if enough time had passed since last combo
-        if (Time.time < nextComboTime)
+        // Check if enough time had passed since last combo
+        if (Time.time < nextActionTime)
         {
             return;
         }
@@ -368,7 +414,7 @@ public class ChiefController : EnemyController
             combos[chosenComboIndex].voice.Play();
         }
 
-        nextComboTime = Time.time + comboRefreshRate;
+        nextActionTime = Time.time + comboRefreshRate;
 
         // Can be attacked now by opposite of the first ball
         damagingElementalBallTag = (combos[chosenComboIndex].firstBall == "red") ? "IceBall" : "FireBall";
@@ -406,8 +452,26 @@ public class ChiefController : EnemyController
 
     void WaitingState()
     {
-        // TODO: If first time in waiting state, move fast to starting position (and face left)
-        //              else, do nothing
+        horizontalMove = 0;
+
+        if (transform.position.x < startingX - 1.5f)
+        {
+            horizontalMove = 2;
+            Move();
+        }
+        else
+        {
+            animator.SetFloat("Speed", 0);
+            if (!isFacingLeft)
+            {
+                isFacingLeft = !isFacingLeft;
+
+                // Multiply the character's x local scale by -1.
+                Vector3 theScale = transform.localScale;
+                theScale.x *= -1;
+                transform.localScale = theScale;
+            }
+        }
     }
 
     void UltimateState()
@@ -506,9 +570,55 @@ public class ChiefController : EnemyController
     // -----------
     // Controllers
     // -----------
-    void Move() { }
+    void Move()
+    {
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
-    void Attack() { }
+        float move = horizontalMove * Time.fixedDeltaTime * runSpeed;
+
+        // Move the character by finding the target velocity
+        Vector3 targetVelocity = new Vector2(move * 10f, rigidBody.velocity.y);
+
+        // Smoothing the velocity out and applying it to the character
+        Vector3 velocity = Vector3.zero;
+        rigidBody.velocity = Vector3.SmoothDamp(rigidBody.velocity, targetVelocity, ref velocity, 0.05f);
+
+        // If the input is moving the player right and the player is facing left, or the opposite, FLIP
+        if ((move > 0 && isFacingLeft) || (move < 0 && !isFacingLeft))
+        {
+            isFacingLeft = !isFacingLeft;
+
+            // Multiply the character's x local scale by -1.
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
+        }
+    }
+
+    void Attack()
+    {
+        // Check for nearby enemies
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(attackPosition.transform.position, axeSlashRange);
+        ArrayList objects = new ArrayList();
+
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            // If this enemy was already damaged, do nothing
+            if (objects.Contains(colliders[i].gameObject))
+            {
+                continue;
+            }
+
+            // Slash the enemy
+            if (colliders[i].GetComponent<WarlordController>() != null)
+            {
+                StartCoroutine(OnAttackAnimation(colliders[i].gameObject));
+            }
+
+            // Add to damaged enemies
+            objects.Add(colliders[i].gameObject);
+        }
+    }
 
     void Cast(string powerBall)
     {
@@ -534,11 +644,76 @@ public class ChiefController : EnemyController
         playerEnteredPlatform = true;
     }
 
-    IEnumerator OnAttackAnimation()
+    IEnumerator OnAttackAnimation(GameObject player)
     {
-        yield return new WaitForSeconds(attackAnimTime);
+        if (!isFacingLeft)
+        {
+            isFacingLeft = !isFacingLeft;
+
+            // Multiply the character's x local scale by -1.
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
+        }
+
+        yield return new WaitForSeconds(0.2f);
+
+        animator.SetBool("IsAttacking", true);
+
+        yield return new WaitForSeconds(0.5f);
+
+        bool hadBlocked = false;
+        bool isInRange = false;
+
+        for (float i = 0; i < attackAnimTime - 0.5f; i+=0.1f)
+        {
+            // Stop if player blocked
+            if (player.GetComponent<WarlordController>().IsBlocking())
+            {
+                hadBlocked = true;
+                canBeAttacked = true;
+                animator.SetBool("GotParried", true);
+                break;
+            }
+
+            // Check if still in range while attacking
+            if (Vector3.Distance(attackPosition.transform.position, warlord.transform.position) >= axeSlashRange)
+            {
+                isInRange = false;
+            }
+            else
+            {
+                isInRange = true;
+            }
+
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        // If player not blocked and still in range of the axe
+        if (!hadBlocked && isInRange)
+        {
+            player.gameObject.GetComponent<PlayerController>().OnGettingHit();
+        }
+        
+        // Stunned on block
+        if (hadBlocked)
+        {
+            yield return new WaitForSeconds(0.8f);
+            animator.SetBool("GotParried", false);
+            animator.SetBool("IsAttacking", false);
+            yield return new WaitForSeconds(0.3f);
+        }
 
         animator.SetBool("IsAttacking", false);
+
+
+        // Can be attacked on phase 1 anyway
+        if (phase == 1)
+        {
+            canBeAttacked = true;
+        }
+
+        horizontalMove = 1;
     }
 
     IEnumerator OnCastAnimation(GameObject powerBall)
@@ -565,6 +740,9 @@ public class ChiefController : EnemyController
         yield return new WaitForSeconds(hurtAnimTime);
 
         animator.SetBool("IsBeingHurt", false);
+
+        horizontalMove = moveBeforeHurt;
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
     }
 
     IEnumerator OnDeathAnimation()
@@ -618,6 +796,12 @@ public class ChiefController : EnemyController
 
         health -= damage;
         animator.SetBool("IsBeingHurt", true);
+
+        moveBeforeHurt = horizontalMove;
+        animator.SetFloat("Speed", 0);
+        horizontalMove = 0;
+
+        canBeAttacked = false;
         StartCoroutine(OnHurtAnimation());
 
         if (health <= 0)
@@ -675,5 +859,11 @@ public class ChiefController : EnemyController
 
         Rect healthCountLable = new Rect(pos.x - 58, pos.y + 245, 0.1f, 0.1f);
         GUI.Label(healthCountLable, health.ToString() + "%", style);
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPosition.transform.position, axeSlashRange);
     }
 }

@@ -815,7 +815,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.102
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2835,11 +2835,6 @@ PrefabInstance:
       objectReference: {fileID: 1942486522}
     - target: {fileID: 4433505090976555233, guid: bb01969853073fe4d8df9e3464b8d66f,
         type: 3}
-      propertyPath: enrageInSeconds
-      value: 137
-      objectReference: {fileID: 0}
-    - target: {fileID: 4433505090976555233, guid: bb01969853073fe4d8df9e3464b8d66f,
-        type: 3}
       propertyPath: dialog
       value: 
       objectReference: {fileID: 519203673}
@@ -2947,11 +2942,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 721487004636489790, guid: bb01969853073fe4d8df9e3464b8d66f,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.102
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb01969853073fe4d8df9e3464b8d66f, type: 3}

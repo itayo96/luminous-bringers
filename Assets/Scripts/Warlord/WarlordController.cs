@@ -50,7 +50,7 @@ public class WarlordController : PlayerController
     public override void OnGettingHit()
     {
         // If blocking, do not get hit
-        if (!animator.GetBool("IsRightClick"))
+        if (!IsBlocking())
         {
             base.OnGettingHit();
         }
@@ -66,6 +66,11 @@ public class WarlordController : PlayerController
         {
             base.GotHit();
         }
+    }
+
+    public bool IsBlocking()
+    {
+        return animator.GetBool("IsRightClick");
     }
 
     // ---

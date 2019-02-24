@@ -433,6 +433,7 @@ RectTransform:
   - {fileID: 2356515674540759180}
   - {fileID: 700527387579040795}
   - {fileID: 1415249279629672240}
+  - {fileID: 7728668808384855621}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -531,6 +532,7 @@ MonoBehaviour:
   ranger: {fileID: 0}
   elementalist: {fileID: 0}
   mainCamera: {fileID: 0}
+  runSpeed: 15
   phase: 2
   isPhaseWithPlatforms: 0
   phaseStartingHealth: 65
@@ -538,7 +540,7 @@ MonoBehaviour:
   warlordPartHealth: 11
   rangerPartHealth: 37
   elementalistPartHealth: 65
-  attackAnimTime: 0.95
+  attackAnimTime: 1.1
   castAnimTime: 0.95
   roarAnimTime: 0.95
   hurtAnimTime: 0.95
@@ -547,7 +549,9 @@ MonoBehaviour:
   middleProtectivePlatform: {fileID: 0}
   rightProtectivePlatform: {fileID: 0}
   fadeOut: {fileID: 0}
-  enrageInSeconds: 255
+  enrageInSeconds: 350
+  axeSlashRange: 1.7
+  attackPosition: {fileID: 7728668808384855621}
   redPowerBallToLeft: {fileID: 789392391, guid: d2f263519448ff040ac51506acce0192,
     type: 3}
   bluePowerBallToLeft: {fileID: 789392391, guid: 362819917e55482488d5c4d58329be40,
@@ -715,6 +719,36 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &7725881570294050804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7728668808384855621}
+  m_Layer: 11
+  m_Name: AttackPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7728668808384855621
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7725881570294050804}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.21999992, y: -0.55, z: 0.11100343}
+  m_LocalScale: {x: 0.33333328, y: 0.33333328, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1066977033054462364}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8866092834350208787
 GameObject:
   m_ObjectHideFlags: 0
