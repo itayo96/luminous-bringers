@@ -763,7 +763,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 16c3937e7e988ee40a6f1f258685fbb7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 928e1c3a4b649e24db91b13e19ccfddc, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.102
   m_Pitch: 1
@@ -959,7 +959,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: bd51a1569ce943946b9da3982d64037c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2625,6 +2625,16 @@ PrefabInstance:
       propertyPath: background
       value: 
       objectReference: {fileID: 853102044}
+    - target: {fileID: 7795631962570977951, guid: 2e8682d459bd36e45a04303eb77efff3,
+        type: 3}
+      propertyPath: rangerPartHealth
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 7795631962570977951, guid: 2e8682d459bd36e45a04303eb77efff3,
+        type: 3}
+      propertyPath: elementalistPartHealth
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e8682d459bd36e45a04303eb77efff3, type: 3}
 --- !u!1001 &1605630838851019362

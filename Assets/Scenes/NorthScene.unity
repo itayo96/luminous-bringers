@@ -2119,7 +2119,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 060861f4fbc4b584bbdc29a3bca5ea62, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d38e792c3f3953c4693c84738d433a42, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.02
   m_Pitch: 1
@@ -12853,6 +12853,7 @@ MonoBehaviour:
   continueButton: {fileID: 1937079741}
   player: {fileID: 569347501}
   typingSpeed: 0.02
+  timeout: 3
 --- !u!1 &2046799163
 GameObject:
   m_ObjectHideFlags: 0

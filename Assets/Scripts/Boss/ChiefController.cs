@@ -411,6 +411,12 @@ public class ChiefController : EnemyController
             Destroy(symb4, 0.8f);
             Destroy(symb5, 0.8f);
         }
+        else
+        {
+            GameObject symb = Instantiate(symbolClose, firstPatternLocations[0], Quaternion.identity);
+            yield return new WaitForSeconds(0.3f);
+            Destroy(symb, 0.3f);
+        }
 
         // First Pattern Roar
         Roar(firstPatternObjects, firstPatternLocations, firstPatternWaitTime);
@@ -451,6 +457,12 @@ public class ChiefController : EnemyController
             Destroy(symb3, 0.4f);
             Destroy(symb4, 0.4f);
             Destroy(symb5, 0.8f);
+        }
+        else
+        {
+            GameObject symb = Instantiate(symbolFar, secondPatternLocations[4], Quaternion.identity);
+            yield return new WaitForSeconds(0.3f);
+            Destroy(symb, 0.3f);
         }
 
         // Second Pattern Roar
@@ -501,6 +513,12 @@ public class ChiefController : EnemyController
             Destroy(symb6, 0.8f);
             Destroy(symb7, 0.8f);
         }
+        else
+        {
+            GameObject symb = Instantiate(symbolClose, thirdPart1PatternLocations[0], Quaternion.identity);
+            yield return new WaitForSeconds(0.3f);
+            Destroy(symb, 0.3f);
+        }
 
         // Third Pattern Roar
         canBeAttacked = true;
@@ -542,6 +560,12 @@ public class ChiefController : EnemyController
             Destroy(symb5, 2f);
             Destroy(symb6, 2f);
             Destroy(symb7, 2f);
+        }
+        else
+        {
+            GameObject symb = Instantiate(symbolClose, thirdPart2PatternLocations[0], Quaternion.identity);
+            yield return new WaitForSeconds(0.3f);
+            Destroy(symb, 0.3f);
         }
 
         // Third Pattern Roar

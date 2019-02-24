@@ -338,9 +338,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textDisplay: {fileID: 1797342681}
   continueButton: {fileID: 1363150507}
-  player: {fileID: 5009830991967742214}
+  player: {fileID: 0}
   typingSpeed: 0.02
-  timeout: 10
+  timeout: 3
 --- !u!1001 &554558123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -811,7 +811,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2f484a2aa0db679468174d2a1dac987d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 724dc4743ab60ed449e7e8df2c9d1a7b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.102
   m_Pitch: 1
@@ -1077,7 +1077,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 5d4a21e087590dc439930dd8b939ae41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3029,18 +3029,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52918dcaea1e6a94e9b0250dca973883, type: 3}
---- !u!114 &5009830991967742214 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5009830990719952354, guid: 52918dcaea1e6a94e9b0250dca973883,
-    type: 3}
-  m_PrefabInstance: {fileID: 5009830991967742213}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 387863469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b06856ad3798fa042b7e1c8222e99556, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &6499248504460412044
 PrefabInstance:
   m_ObjectHideFlags: 0

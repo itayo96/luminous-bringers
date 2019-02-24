@@ -532,6 +532,7 @@ MonoBehaviour:
   ranger: {fileID: 0}
   elementalist: {fileID: 0}
   mainCamera: {fileID: 0}
+  background: {fileID: 0}
   tilemap: {fileID: 0}
   runSpeed: 15
   phase: 2
@@ -640,7 +641,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 77475a13d00fd0f40ba0c252410f4ac2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a05b2f9fa06060d4686f86248d09e169, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.102
   m_Pitch: 1
