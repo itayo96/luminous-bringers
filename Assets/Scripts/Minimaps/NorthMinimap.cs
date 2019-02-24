@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class minimap_script : MonoBehaviour
+public class NorthMinimap : MonoBehaviour
 {
     
     public Transform targetTransform;
+    public 
     Vector3 tempVec3 = new Vector3();
+    
+    private const float endOfScenePositionX = 152;
 
     void LateUpdate() {
         // Find a better way to do this
-        if (targetTransform.position.x > 152)
+        if (targetTransform.position.x > endOfScenePositionX)
         {
-            tempVec3.x = 152 + 40;
+            tempVec3.x = endOfScenePositionX + 40;
         }
         else
         {

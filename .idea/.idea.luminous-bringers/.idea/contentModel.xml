@@ -14,7 +14,11 @@
           <e p="Enemy" t="Include">
             <e p="EnemyController.cs" t="Include" />
           </e>
-          <e p="minimap_script.cs" t="Include" />
+          <e p="Minimaps" t="Include">
+            <e p="DesertMinimap.cs" t="Include" />
+            <e p="ForestMinimap.cs" t="Include" />
+            <e p="NorthMinimap.cs" t="Include" />
+          </e>
           <e p="PlayerController.cs" t="Include" />
           <e p="Ranger" t="Include">
             <e p="Arrow.cs" t="Include" />
