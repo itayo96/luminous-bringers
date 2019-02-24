@@ -532,6 +532,7 @@ MonoBehaviour:
   ranger: {fileID: 0}
   elementalist: {fileID: 0}
   mainCamera: {fileID: 0}
+  tilemap: {fileID: 0}
   runSpeed: 15
   phase: 2
   isPhaseWithPlatforms: 0
@@ -578,6 +579,12 @@ MonoBehaviour:
     text: I am the requiem of the north to the sun above.
     voice: {fileID: 1897063017574172821}
     wasUsed: 0
+  pillar: {fileID: 2547366430387187191, guid: 34c1d6855ac13d845bff89174f067896, type: 3}
+  rock: {fileID: 3128409698777988266, guid: b10ff1ac280d6034f8c8ee834da342bf, type: 3}
+  symbolClose: {fileID: 4436533837466774862, guid: b16c90c639e3aa84ba9ab221b626dafb,
+    type: 3}
+  symbolFar: {fileID: 4436533837466774862, guid: 9e40cef0e223e84478f27eb9872a77af,
+    type: 3}
 --- !u!95 &4836154357209233375
 Animator:
   serializedVersion: 3

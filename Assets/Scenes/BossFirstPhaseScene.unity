@@ -2838,6 +2838,16 @@ PrefabInstance:
       propertyPath: dialog
       value: 
       objectReference: {fileID: 519203673}
+    - target: {fileID: 4433505090976555233, guid: bb01969853073fe4d8df9e3464b8d66f,
+        type: 3}
+      propertyPath: tilemap
+      value: 
+      objectReference: {fileID: 1013430179}
+    - target: {fileID: 4433505090976555233, guid: bb01969853073fe4d8df9e3464b8d66f,
+        type: 3}
+      propertyPath: background
+      value: 
+      objectReference: {fileID: 853102044}
     - target: {fileID: 4433505090976555234, guid: bb01969853073fe4d8df9e3464b8d66f,
         type: 3}
       propertyPath: m_LocalPosition.x

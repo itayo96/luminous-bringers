@@ -36,9 +36,7 @@ public class PlayerController : MonoBehaviour
     public int maxHealthCount = 3;
     public Texture2D healthTexture;
     public string sceneToLoadOnDeath = "";
-
-    // Private Stats Members
-    private int health = 3;
+    public int health = 3;
 
     // Public Animation Timers
     public float jumpAnimTime = 0.25f;

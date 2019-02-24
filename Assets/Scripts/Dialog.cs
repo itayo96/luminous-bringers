@@ -12,7 +12,7 @@ public class Dialog : MonoBehaviour
 
     // Public Text Members
     public float typingSpeed = 0.02f;
-    public float timeout = 5f;
+    public float timeout = 3f;
 
     // Private Text Members
     private string[] sentences;

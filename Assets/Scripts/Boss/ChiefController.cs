@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Tilemaps;
 
 public class ChiefController : EnemyController
 {
@@ -29,7 +30,6 @@ public class ChiefController : EnemyController
     }
 
     // Components
-    private Rigidbody2D rigidBody;
     public Animator animator;
 
     // Player Objects
@@ -37,6 +37,10 @@ public class ChiefController : EnemyController
 
     // Main Camera
     public GameObject mainCamera;
+
+    // Tilemap & Background
+    public GameObject background;
+    public GameObject tilemap;
 
     // Private Movement Members
     public float runSpeed = 12f;
@@ -88,9 +92,15 @@ public class ChiefController : EnemyController
     public GameObject bluePowerBallToLeft;
     public Dialog dialog;
     public Combo[] combos;
-
     private float comboRefreshRate = 15f;
-    
+
+    // Rock
+    public GameObject pillar;
+    public GameObject rock;
+    public GameObject symbolClose;
+    public GameObject symbolFar;
+    private float danceRefreshRate = 14f;
+
     // --------
     // Starters
     // --------
@@ -139,10 +149,7 @@ public class ChiefController : EnemyController
         }
     }
 
-    new void Awake()
-    {
-        rigidBody = GetComponent<Rigidbody2D>();
-    }
+    new void Awake() { }
 
     // -------------------
     // Updaters & Checkers
@@ -358,15 +365,206 @@ public class ChiefController : EnemyController
 
     void RangerState()
     {
-        // TODO: Summon the dance components
+        // Check if enough time had passed since last combo
+        if (Time.time < nextActionTime)
+        {
+            return;
+        }
 
+        // Flash
+        StartCoroutine(TileMapFlash());
+
+        nextActionTime = Time.time + danceRefreshRate;
+
+        // Dance
+        StartCoroutine(ActivateDance());
+    }
+
+    IEnumerator ActivateDance()
+    {
+        int playerHealth = ranger.GetComponent<PlayerController>().health;
+
+        // First Pattern
+        string[] firstPatternObjects = { "pillar", "rock", "rock", "rock", "rock" };
+        Vector3[] firstPatternLocations =
+        {
+            new Vector3(ranger.transform.position.x, -4.5f, 0),
+            new Vector3(ranger.transform.position.x - 1f, 4.5f, 0),
+            new Vector3(ranger.transform.position.x + 1f, 4.5f, 0),
+            new Vector3(ranger.transform.position.x - 2f, 4.5f, 0),
+            new Vector3(ranger.transform.position.x + 2f, 4.5f, 0),
+        };
+        float[] firstPatternWaitTime = { 0.3f, 0, 0, 0, 0};
+
+        // First Pattern Symbols on Phase 1
         if (phase == 1)
         {
-            health = 65;
+            GameObject symb1 = Instantiate(symbolClose, firstPatternLocations[0], Quaternion.identity);
+            GameObject symb2 = Instantiate(symbolFar, firstPatternLocations[1], Quaternion.identity);
+            GameObject symb3 = Instantiate(symbolFar, firstPatternLocations[2], Quaternion.identity);
+            GameObject symb4 = Instantiate(symbolFar, firstPatternLocations[3], Quaternion.identity);
+            GameObject symb5 = Instantiate(symbolFar, firstPatternLocations[4], Quaternion.identity);
+            yield return new WaitForSeconds(0.5f);
+            Destroy(symb1, 0.4f);
+            Destroy(symb2, 0.8f);
+            Destroy(symb3, 0.8f);
+            Destroy(symb4, 0.8f);
+            Destroy(symb5, 0.8f);
         }
-        else
+
+        // First Pattern Roar
+        Roar(firstPatternObjects, firstPatternLocations, firstPatternWaitTime);
+
+        // Wait and check if dance needs to be stopped
+        yield return new WaitForSeconds(2f);
+        if (playerHealth != ranger.GetComponent<PlayerController>().health ||
+            state != StateMachine.against_ranger)
         {
-            health = 11;
+            nextActionTime -= 9f;
+            yield break;
+        }
+
+
+        // Second Pattern
+        string[] secondPatternObjects = { "pillar", "pillar", "pillar", "pillar", "rock"};
+        Vector3[] secondPatternLocations =
+        {
+            new Vector3(ranger.transform.position.x - 1f, -4.5f, 0),
+            new Vector3(ranger.transform.position.x + 1f, -4.5f, 0),
+            new Vector3(ranger.transform.position.x - 2f, -4.5f, 0),
+            new Vector3(ranger.transform.position.x + 2f, -4.5f, 0),
+            new Vector3(ranger.transform.position.x, 4.5f, 0),
+        };
+        float[] secondPatternWaitTime = { 0, 0, 0, 0.6f, 0};
+
+        // Second Pattern Symbols on Phase 1
+        if (phase == 1)
+        {
+            GameObject symb1 = Instantiate(symbolClose, secondPatternLocations[0], Quaternion.identity);
+            GameObject symb2 = Instantiate(symbolClose, secondPatternLocations[1], Quaternion.identity);
+            GameObject symb3 = Instantiate(symbolClose, secondPatternLocations[2], Quaternion.identity);
+            GameObject symb4 = Instantiate(symbolClose, secondPatternLocations[3], Quaternion.identity);
+            GameObject symb5 = Instantiate(symbolFar, secondPatternLocations[4], Quaternion.identity);
+            yield return new WaitForSeconds(0.5f);
+            Destroy(symb1, 0.4f);
+            Destroy(symb2, 0.4f);
+            Destroy(symb3, 0.4f);
+            Destroy(symb4, 0.4f);
+            Destroy(symb5, 0.8f);
+        }
+
+        // Second Pattern Roar
+        canBeAttacked = true;
+        Roar(secondPatternObjects, secondPatternLocations, secondPatternWaitTime);
+
+        // Wait and check if dance needs to be stopped
+        yield return new WaitForSeconds(2f);
+        canBeAttacked = false;
+        if (playerHealth != ranger.GetComponent<PlayerController>().health ||
+            state != StateMachine.against_ranger)
+        {
+            nextActionTime -= 6f;
+            yield break;
+        }
+
+
+        // Third Pattern Part 1
+        string[] thirdPart1PatternObjects = { "pillar", "pillar", "pillar", "pillar", "pillar", "pillar", "pillar" };
+        Vector3[] thirdPart1PatternLocations =
+        {
+            new Vector3(ranger.transform.position.x, -4.5f, 0),
+            new Vector3(ranger.transform.position.x - 1f, -4.5f, 0),
+            new Vector3(ranger.transform.position.x + 1f, -4.5f, 0),
+            new Vector3(ranger.transform.position.x - 2f, -4.5f, 0),
+            new Vector3(ranger.transform.position.x + 2f, -4.5f, 0),
+            new Vector3(ranger.transform.position.x - 3f, -4.5f, 0),
+            new Vector3(ranger.transform.position.x + 3f, -4.5f, 0),
+        };
+        float[] thirdPart1PatternWaitTime = { 1.5f, 0, 0, 0, 0, 0, 0 };
+
+        // Third Pattern Symbols on Phase 1
+        if (phase == 1)
+        {
+            GameObject symb1 = Instantiate(symbolClose, thirdPart1PatternLocations[0], Quaternion.identity);
+            GameObject symb2 = Instantiate(symbolFar, thirdPart1PatternLocations[1], Quaternion.identity);
+            GameObject symb3 = Instantiate(symbolFar, thirdPart1PatternLocations[2], Quaternion.identity);
+            GameObject symb4 = Instantiate(symbolFar, thirdPart1PatternLocations[3], Quaternion.identity);
+            GameObject symb5 = Instantiate(symbolFar, thirdPart1PatternLocations[4], Quaternion.identity);
+            GameObject symb6 = Instantiate(symbolFar, thirdPart1PatternLocations[5], Quaternion.identity);
+            GameObject symb7 = Instantiate(symbolFar, thirdPart1PatternLocations[6], Quaternion.identity);
+            yield return new WaitForSeconds(0.5f);
+            Destroy(symb1, 0.4f);
+            Destroy(symb2, 0.8f);
+            Destroy(symb3, 0.8f);
+            Destroy(symb4, 0.8f);
+            Destroy(symb5, 0.8f);
+            Destroy(symb6, 0.8f);
+            Destroy(symb7, 0.8f);
+        }
+
+        // Third Pattern Roar
+        canBeAttacked = true;
+        Roar(thirdPart1PatternObjects, thirdPart1PatternLocations, thirdPart1PatternWaitTime);
+
+        // Wait
+        yield return new WaitForSeconds(2f);
+        canBeAttacked = false;
+
+        // Third Pattern Part 2
+        string[] thirdPart2PatternObjects = { "rock", "rock", "rock", "pillar", "pillar", "pillar", "pillar" };
+        Vector3[] thirdPart2PatternLocations =
+        {
+            new Vector3(ranger.transform.position.x, 4.5f, 0),
+            new Vector3(ranger.transform.position.x - 1f, 4.5f, 0),
+            new Vector3(ranger.transform.position.x + 1f, 4.5f, 0),
+            new Vector3(ranger.transform.position.x - 1f, -4.5f, 0),
+            new Vector3(ranger.transform.position.x + 1f, -4.5f, 0),
+            new Vector3(ranger.transform.position.x - 2f, -4.5f, 0),
+            new Vector3(ranger.transform.position.x + 2f, -4.5f, 0),
+        };
+        float[] thirdPart2PatternWaitTime = { 0, 0, 2f, 0, 0, 0, 0 };
+
+        // Third Pattern Symbols on Phase 1
+        if (phase == 1)
+        {
+            GameObject symb1 = Instantiate(symbolClose, thirdPart2PatternLocations[0], Quaternion.identity);
+            GameObject symb2 = Instantiate(symbolClose, thirdPart2PatternLocations[1], Quaternion.identity);
+            GameObject symb3 = Instantiate(symbolClose, thirdPart2PatternLocations[2], Quaternion.identity);
+            GameObject symb4 = Instantiate(symbolFar, thirdPart2PatternLocations[3], Quaternion.identity);
+            GameObject symb5 = Instantiate(symbolFar, thirdPart2PatternLocations[4], Quaternion.identity);
+            GameObject symb6 = Instantiate(symbolFar, thirdPart2PatternLocations[5], Quaternion.identity);
+            GameObject symb7 = Instantiate(symbolFar, thirdPart2PatternLocations[6], Quaternion.identity);
+            yield return new WaitForSeconds(0.3f);
+            Destroy(symb1, 0.4f);
+            Destroy(symb2, 0.4f);
+            Destroy(symb3, 0.4f);
+            Destroy(symb4, 2f);
+            Destroy(symb5, 2f);
+            Destroy(symb6, 2f);
+            Destroy(symb7, 2f);
+        }
+
+        // Third Pattern Roar
+        Roar(thirdPart2PatternObjects, thirdPart2PatternLocations, thirdPart2PatternWaitTime);
+    }
+
+    IEnumerator TileMapFlash()
+    {
+        background.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+        tilemap.GetComponent<Tilemap>().color = new Color(1f, 1f, 1f, 1f);
+
+        while (background.GetComponent<SpriteRenderer>().color.b > 0.2f)
+        {
+            background.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, background.GetComponent<SpriteRenderer>().color.b - 0.1f);
+            tilemap.GetComponent<Tilemap>().color = new Color(1f, 1f, tilemap.GetComponent<Tilemap>().color.b - 0.1f);
+            yield return new WaitForSeconds(0.05f);
+        }
+
+        while (background.GetComponent<SpriteRenderer>().color.b < 1)
+        {
+            background.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, background.GetComponent<SpriteRenderer>().color.b + 0.1f);
+            tilemap.GetComponent<Tilemap>().color = new Color(1f, 1f, tilemap.GetComponent<Tilemap>().color.b + 0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 
@@ -572,16 +770,18 @@ public class ChiefController : EnemyController
     // -----------
     void Move()
     {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
         float move = horizontalMove * Time.fixedDeltaTime * runSpeed;
 
         // Move the character by finding the target velocity
-        Vector3 targetVelocity = new Vector2(move * 10f, rigidBody.velocity.y);
+        Vector3 targetVelocity = new Vector2(move * 10f, rb.velocity.y);
 
         // Smoothing the velocity out and applying it to the character
         Vector3 velocity = Vector3.zero;
-        rigidBody.velocity = Vector3.SmoothDamp(rigidBody.velocity, targetVelocity, ref velocity, 0.05f);
+        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, 0.05f);
 
         // If the input is moving the player right and the player is facing left, or the opposite, FLIP
         if ((move > 0 && isFacingLeft) || (move < 0 && !isFacingLeft))
@@ -634,7 +834,12 @@ public class ChiefController : EnemyController
         }
     }
 
-    void Roar() { }
+    void Roar(string[] objects, Vector3[] locations, float[] waitingTimes)
+    {
+        animator.SetBool("IsRoaring", true);
+
+        StartCoroutine(OnRoarAnimation(objects, locations, waitingTimes));
+    }
 
     // ------
     // Events
@@ -733,6 +938,27 @@ public class ChiefController : EnemyController
         yield return new WaitForSeconds(roarAnimTime);
 
         animator.SetBool("IsRoaring", false);
+    }
+
+    IEnumerator OnRoarAnimation(string[] objects, Vector3[] locations, float[] waitingTimes)
+    {
+        yield return new WaitForSeconds(roarAnimTime);
+
+        animator.SetBool("IsRoaring", false);
+
+        for (int i = 0; i < objects.Length; i++)
+        {
+            if (objects[i] == "pillar")
+            {
+                Instantiate(pillar, locations[i], Quaternion.identity);
+            }
+            else if (objects[i] == "rock")
+            {
+                Instantiate(rock, locations[i], Quaternion.identity);
+            }
+
+            yield return new WaitForSeconds(waitingTimes[i]);
+        }
     }
 
     IEnumerator OnHurtAnimation()
