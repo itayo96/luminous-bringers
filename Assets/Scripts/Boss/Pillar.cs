@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pillar : MonoBehaviour
 {
-    public float startingY = -5.10f;
+    public float startingY = -5f;
     public float endingY = -3.3f;
 
     private bool playerGotHit = false;
@@ -22,8 +22,8 @@ public class Pillar : MonoBehaviour
         // Going Up
         while (transform.position.y <= endingY)
         {
-            transform.position += new Vector3(0, 0.25f, 0);
             yield return new WaitForSeconds(0.02f);
+            transform.position += new Vector3(0, 0.25f, 0);
         }
 
         playerGotHit = true; // Avoid colliding while disappearing

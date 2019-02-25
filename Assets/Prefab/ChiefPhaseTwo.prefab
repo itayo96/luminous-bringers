@@ -551,7 +551,7 @@ MonoBehaviour:
   middleProtectivePlatform: {fileID: 0}
   rightProtectivePlatform: {fileID: 0}
   fadeOut: {fileID: 0}
-  enrageInSeconds: 350
+  enrageInSeconds: 380
   axeSlashRange: 1.7
   attackPosition: {fileID: 7728668808384855621}
   redPowerBallToLeft: {fileID: 789392391, guid: d2f263519448ff040ac51506acce0192,

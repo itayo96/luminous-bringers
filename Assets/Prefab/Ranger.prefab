@@ -159,7 +159,9 @@ MonoBehaviour:
     m_Bits: 16
   groundChecker: {fileID: 1360063306877152707}
   maxHealthCount: 4
-  healthTexture: {fileID: 2800000, guid: e5c25d5b7efb95049855d8f997f03d07, type: 3}
+  healthTexture: {fileID: 2800000, guid: fc31e9a4c87f028449b4a780b2a298a6, type: 3}
+  sceneToLoadOnDeath: 
+  health: 4
   jumpAnimTime: 0
   leftClickAnimTime: 0.85
   rightClickAnimTime: 0.85

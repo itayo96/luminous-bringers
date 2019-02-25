@@ -62,7 +62,7 @@ public class WarlordController : PlayerController
     protected override void GotHit()
     {
         // If blocking, do not get hit
-        if (!animator.GetBool("IsRightClick"))
+        if (!IsBlocking())
         {
             base.GotHit();
         }

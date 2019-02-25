@@ -111,22 +111,11 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Resolve hurt effect set hurt flag to false
-        if (isBeingHurt)
-        {
-            animator.SetBool("IsBeingHurt", true);
-
-            GotHit();
-            isBeingHurt = false;
-   
-            StartCoroutine(OnHurtAnimation());
-        }
-
         // Check for danger zone
         CheckDangerZone();
 
         // Resolve death due to danger zone or enough hits
-        if (!IsAlive())
+        if (!IsAlive() && animator.GetBool("IsAlive"))
         {
             animator.SetBool("IsAlive", false);
             animator.SetBool("IsJumping", false);
@@ -265,7 +254,7 @@ public class PlayerController : MonoBehaviour
 
     public virtual void OnGettingHit()
     {
-        isBeingHurt = true;
+        GotHit();
     }
 
     IEnumerator OnJumpAnimation()
@@ -300,16 +289,16 @@ public class PlayerController : MonoBehaviour
         while (GetComponent<SpriteRenderer>().color.g > 0.2f)
         {
             GetComponent<SpriteRenderer>().color = new Color(1f, GetComponent<SpriteRenderer>().color.g - 0.2f, GetComponent<SpriteRenderer>().color.b - 0.2f);
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.03f);
         }
 
         while (GetComponent<SpriteRenderer>().color.g < 1)
         {
             GetComponent<SpriteRenderer>().color = new Color(1f, GetComponent<SpriteRenderer>().color.g + 0.2f, GetComponent<SpriteRenderer>().color.b + 0.2f);
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.03f);
         }
 
-        yield return new WaitForSeconds(hurtAnimTime);
+        yield return new WaitForSeconds(hurtAnimTime - 0.24f);
 
         animator.SetBool("IsBeingHurt", false);
     }
@@ -333,9 +322,11 @@ public class PlayerController : MonoBehaviour
     // ------
     protected virtual void GotHit()
     {
-        if (health > 0)
+        if (health > 0 && !animator.GetBool("IsBeingHurt"))
         {
             health--;
+            animator.SetBool("IsBeingHurt", true);
+            StartCoroutine(OnHurtAnimation());
         }
     }
 

@@ -430,6 +430,8 @@ public class ChiefController : EnemyController
             yield break;
         }
 
+        // Can be attacked after first roar
+        canBeAttacked = true;
 
         // Second Pattern
         string[] secondPatternObjects = { "pillar", "pillar", "pillar", "pillar", "rock"};
@@ -466,12 +468,10 @@ public class ChiefController : EnemyController
         }
 
         // Second Pattern Roar
-        canBeAttacked = true;
         Roar(secondPatternObjects, secondPatternLocations, secondPatternWaitTime);
 
         // Wait and check if dance needs to be stopped
         yield return new WaitForSeconds(2f);
-        canBeAttacked = false;
         if (playerHealth != ranger.GetComponent<PlayerController>().health ||
             state != StateMachine.against_ranger)
         {
@@ -520,13 +520,14 @@ public class ChiefController : EnemyController
             Destroy(symb, 0.3f);
         }
 
-        // Third Pattern Roar
+        // Can be attacked againg before third roar part 1
         canBeAttacked = true;
+
+        // Third Pattern Roar
         Roar(thirdPart1PatternObjects, thirdPart1PatternLocations, thirdPart1PatternWaitTime);
 
         // Wait
         yield return new WaitForSeconds(2f);
-        canBeAttacked = false;
 
         // Third Pattern Part 2
         string[] thirdPart2PatternObjects = { "rock", "rock", "rock", "pillar", "pillar", "pillar", "pillar" };
@@ -570,6 +571,8 @@ public class ChiefController : EnemyController
 
         // Third Pattern Roar
         Roar(thirdPart2PatternObjects, thirdPart2PatternLocations, thirdPart2PatternWaitTime);
+
+        canBeAttacked = false;
     }
 
     IEnumerator TileMapFlash()
@@ -931,6 +934,12 @@ public class ChiefController : EnemyController
             yield return new WaitForSeconds(0.05f);
         }
 
+        // Can be attacked on phase 1 anyway
+        if (phase == 1)
+        {
+            canBeAttacked = true;
+        }
+
         // If player not blocked and still in range of the axe
         if (!hadBlocked && isInRange)
         {
@@ -943,18 +952,10 @@ public class ChiefController : EnemyController
             yield return new WaitForSeconds(0.8f);
             animator.SetBool("GotParried", false);
             animator.SetBool("IsAttacking", false);
-            yield return new WaitForSeconds(0.3f);
         }
 
         yield return new WaitForSeconds(0.35f);
         animator.SetBool("IsAttacking", false);
-
-
-        // Can be attacked on phase 1 anyway
-        if (phase == 1)
-        {
-            canBeAttacked = true;
-        }
 
         horizontalMove = 1;
     }
@@ -1019,8 +1020,11 @@ public class ChiefController : EnemyController
 
         animator.SetBool("IsBeingHurt", false);
 
-        horizontalMove = moveBeforeHurt;
-        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        if (moveBeforeHurt != 0)
+        {
+            horizontalMove = moveBeforeHurt;
+            animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        }
     }
 
     IEnumerator OnDeathAnimation()

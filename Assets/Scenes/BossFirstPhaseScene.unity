@@ -3319,5 +3319,10 @@ PrefabInstance:
       propertyPath: onPlayerCollision.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1497349551}
+    - target: {fileID: 3155944808579978781, guid: 82fe8e330e4b22743a2aba10cda731c1,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.47058824
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82fe8e330e4b22743a2aba10cda731c1, type: 3}
