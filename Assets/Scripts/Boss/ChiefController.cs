@@ -706,6 +706,19 @@ public class ChiefController : EnemyController
         mainCamera.GetComponent<AudioSource>().Stop();
         GetComponent<AudioSource>().Play();
 
+        horizontalMove = 0;
+        animator.SetFloat("Speed", 0f);
+
+        if (!isFacingLeft)
+        {
+            isFacingLeft = !isFacingLeft;
+
+            // Multiply the character's x local scale by -1.
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
+        }
+
         animator.SetBool("IsRoaring", true);
         StartCoroutine(OnRoarAnimation());
 
@@ -766,11 +779,11 @@ public class ChiefController : EnemyController
 
         fadeOut.GetComponent<Image>().material = null;
 
-        yield return new WaitForSeconds(6.4f);
+        yield return new WaitForSeconds(1.5f);
 
         if (enrageInSeconds == 0f)
         {
-            yield return new WaitForSeconds(6.5f);
+            yield return new WaitForSeconds(1f);
         }
 
         // Transition based on player's situation
@@ -894,7 +907,7 @@ public class ChiefController : EnemyController
         bool hadBlocked = false;
         bool isInRange = false;
 
-        for (float i = 0; i < attackAnimTime - 0.5f; i+=0.1f)
+        for (float i = 0; i < attackAnimTime - 0.8f; i+=0.05f)
         {
             // Stop if player blocked
             if (player.GetComponent<WarlordController>().IsBlocking())
@@ -915,7 +928,7 @@ public class ChiefController : EnemyController
                 isInRange = true;
             }
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
 
         // If player not blocked and still in range of the axe
@@ -933,6 +946,7 @@ public class ChiefController : EnemyController
             yield return new WaitForSeconds(0.3f);
         }
 
+        yield return new WaitForSeconds(0.35f);
         animator.SetBool("IsAttacking", false);
 
 
@@ -987,7 +1001,21 @@ public class ChiefController : EnemyController
 
     IEnumerator OnHurtAnimation()
     {
-        yield return new WaitForSeconds(hurtAnimTime);
+        GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+
+        while (GetComponent<SpriteRenderer>().color.g > 0.2f)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(1f, GetComponent<SpriteRenderer>().color.g - 0.2f, GetComponent<SpriteRenderer>().color.b - 0.2f);
+            yield return new WaitForSeconds(0.05f);
+        }
+
+        while (GetComponent<SpriteRenderer>().color.g < 1)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(1f, GetComponent<SpriteRenderer>().color.g + 0.2f, GetComponent<SpriteRenderer>().color.b + 0.2f);
+            yield return new WaitForSeconds(0.05f);
+        }
+
+        yield return new WaitForSeconds(hurtAnimTime - 0.4f);
 
         animator.SetBool("IsBeingHurt", false);
 

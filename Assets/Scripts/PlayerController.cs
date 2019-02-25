@@ -293,6 +293,20 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator OnHurtAnimation()
     {
+        GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+
+        while (GetComponent<SpriteRenderer>().color.g > 0.2f)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(1f, GetComponent<SpriteRenderer>().color.g - 0.2f, GetComponent<SpriteRenderer>().color.b - 0.2f);
+            yield return new WaitForSeconds(0.05f);
+        }
+
+        while (GetComponent<SpriteRenderer>().color.g < 1)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(1f, GetComponent<SpriteRenderer>().color.g + 0.2f, GetComponent<SpriteRenderer>().color.b + 0.2f);
+            yield return new WaitForSeconds(0.05f);
+        }
+
         yield return new WaitForSeconds(hurtAnimTime);
 
         animator.SetBool("IsBeingHurt", false);
