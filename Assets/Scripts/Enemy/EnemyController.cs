@@ -13,46 +13,37 @@ public class EnemyController : MonoBehaviour
     // --------
     // Starters
     // --------
-    void Start() { }
-    void Awake() { }
+    protected virtual void Start() { }
+    protected virtual void Awake() { }
 
     // -------------------
     // Updaters & Checkers
     // -------------------
-    void Update() { }
-    void FixedUpdate() { }
+    protected virtual void Update() { }
+    protected virtual void FixedUpdate() { }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag.Equals("FireBall") || collision.gameObject.tag.Equals("IceBall"))
-        {
-            Destroy(collision.gameObject);
-
-            OnHit(elementalHitDamage);
-        }
-        else if (collision.gameObject.tag.Equals("Arrow"))
-        {
-            Destroy(collision.gameObject);
-
-            OnHit(arrowHitDamage);
-        }
-        else if (collision.gameObject.tag.Equals("Player"))
-        {
-            collision.gameObject.GetComponent<PlayerController>().OnGettingHit();
-        }
-    }
-
-    public void GotSlashedBySword()
+    public virtual void GotSlashedBySword()
     {
         OnHit(swordHitDamage);
     }
 
-    private void OnHit(int damage)
+    public virtual void GotHitByElementalBall(string ballTag)
+    {
+        OnHit(elementalHitDamage);
+    }
+
+    public virtual void GotHitByArrow()
+    {
+        OnHit(arrowHitDamage);
+    }
+
+    protected virtual void OnHit(int damage)
     {
         health -= damage;
 
         if (health <= 0)
         {
+            // TODO: Death animation
             Destroy(gameObject);
         }
     }

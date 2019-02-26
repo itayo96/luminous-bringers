@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class RangerController : PlayerController
 {
-    // Public ElementalBall Members
+    // Public Arrow Members
     public GameObject arrowToRight, arrowToLeft;
-
-    // Private ElementalBall Members
+    
+    // Private Arrow Members
     private float arrowWaitTime;
     private float xArrowPosition = 0.7f;
-
     private bool isArrowInAir = false;
+
+    // Public Haste Members
+    public float hasteBonus = 10f;
+    public float hasteDuration = 3f;
+    public float hasteCooldown = 12f;
+    public Texture2D hasteTexture;
+
+    // Private Haste Members
+    private bool isHasteActive = false;
 
     // --------
     // Starters
@@ -28,37 +36,96 @@ public class RangerController : PlayerController
     // -----------
     protected override void LeftClick()
     {
-        Cast(arrowToRight, arrowToLeft, arrowWaitTime);
+        Shoot(arrowToRight, arrowToLeft, arrowWaitTime);
     }
 
     protected override void RightClick()
     {
-        Cast(arrowToRight, arrowToLeft, arrowWaitTime);
+        Haste();
     }
     
-    void Cast(GameObject elementalToRight, GameObject elementalToLeft, float waitTime)
+    void Shoot(GameObject arrowToRight, GameObject arrowToLeft, float waitTime)
     {
-        // Coroutine of casting to wait a little before creating the elemental ball (so the animation would get to the right frame)
+        // Coroutine of shooting to wait a little before creating the arrow (so the animation would get to the right frame)
         if (base.isFacingRight)
         {
-            StartCoroutine(OnCast(elementalToRight, xArrowPosition, waitTime));
+            StartCoroutine(OnShoot(arrowToRight, xArrowPosition, waitTime));
         }
         else
         {
-            StartCoroutine(OnCast(elementalToLeft, (-1) * xArrowPosition, waitTime));
+            StartCoroutine(OnShoot(arrowToLeft, (-1) * xArrowPosition, waitTime));
         }
+    }
+
+    void Haste()
+    {
+        if (isHasteActive)
+        {
+            return;
+        }
+
+        runSpeed += hasteBonus;
+
+        isHasteActive = true;
+
+        StartCoroutine(OnHaste());
     }
 
     // ------
     // Events
     // ------
-    IEnumerator OnCast(GameObject elemental, float x_position, float waitTime)
+    IEnumerator OnShoot(GameObject arrow, float x_position, float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
 
-        Vector2 elementalPosition = transform.position;
+        Vector2 arrowPosition = transform.position;
 
-        elementalPosition += new Vector2(x_position, 0f);
-        Instantiate(elemental, elementalPosition, Quaternion.identity);
+        arrowPosition += new Vector2(x_position, 0f);
+        Instantiate(arrow, arrowPosition, Quaternion.identity);
+    }
+
+    IEnumerator OnHaste()
+    {
+        GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+
+        while (GetComponent<SpriteRenderer>().color.r > 0.2f)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(GetComponent<SpriteRenderer>().color.r - 0.1f, 1f, GetComponent<SpriteRenderer>().color.b - 0.1f);
+            yield return new WaitForSeconds(0.03f);
+        }
+
+        while (GetComponent<SpriteRenderer>().color.r < 1)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(GetComponent<SpriteRenderer>().color.r + 0.1f, 1f, GetComponent<SpriteRenderer>().color.b + 0.1f);
+            yield return new WaitForSeconds(0.03f);
+        }
+
+        yield return new WaitForSeconds(hasteDuration - 0.48f);
+
+        runSpeed -= hasteBonus;
+
+        yield return new WaitForSeconds(hasteCooldown);
+
+        isHasteActive = false;
+    }
+
+    // ---
+    // GUI
+    // ---
+    protected override void OnGUI()
+    {
+        if (!isInputEnabled)
+        {
+            return;
+        }
+
+        base.OnGUI();
+
+        // Haste Icon
+        if (!isHasteActive)
+        {
+            Rect hasteIcon = new Rect(240, 93, 25, 25);
+            GUI.DrawTexture(hasteIcon, hasteTexture);
+        }
     }
 }

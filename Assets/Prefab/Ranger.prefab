@@ -159,7 +159,9 @@ MonoBehaviour:
     m_Bits: 16
   groundChecker: {fileID: 1360063306877152707}
   maxHealthCount: 4
-  healthTexture: {fileID: 2800000, guid: e5c25d5b7efb95049855d8f997f03d07, type: 3}
+  healthTexture: {fileID: 2800000, guid: fc31e9a4c87f028449b4a780b2a298a6, type: 3}
+  sceneToLoadOnDeath: 
+  health: 4
   jumpAnimTime: 0
   leftClickAnimTime: 0.85
   rightClickAnimTime: 0.85
@@ -168,6 +170,10 @@ MonoBehaviour:
   arrowToRight: {fileID: 6285037841945601156, guid: b32dacd863b6a3d43814b43394b8100a,
     type: 3}
   arrowToLeft: {fileID: 789392391, guid: 7d613aa8cbd748b41a60a11f5cbda9ae, type: 3}
+  hasteBonus: 10
+  hasteDuration: 3
+  hasteCooldown: 12
+  hasteTexture: {fileID: 2800000, guid: e80b1a92bf86cdc48aca8b09af81006f, type: 3}
 --- !u!95 &1046122130234234279
 Animator:
   serializedVersion: 3

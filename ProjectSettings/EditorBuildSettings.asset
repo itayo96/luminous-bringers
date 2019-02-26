@@ -5,10 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/ForestScene.unity
+    guid: 91f44cb50f270064ca705d5d344ec944
   - enabled: 1
     path: Assets/Scenes/NorthScene.unity
     guid: 9decc3acd88801242972414c3590a44b
+  - enabled: 1
+    path: Assets/Scenes/DesertScene.unity
+    guid: 4142917dd61433243aa7abf9f4532062
+  - enabled: 1
+    path: Assets/Scenes/BossFirstPhaseScene.unity
+    guid: 704ad220797fbb3479458a4f94b7ef0a
+  - enabled: 1
+    path: Assets/Scenes/BossSecondPhaseScene.unity
+    guid: 7d218f85b1dae304681ce4f7ef06ccd4
   m_configObjects: {}

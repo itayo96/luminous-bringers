@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     private float horizontalMove = 0f;
     private bool isPreAirborn = false;
     private float lastDistance = 0f;
-    private bool isInputEnabled = true;
+    protected bool isInputEnabled = true;
 
     // Public Ground Members
     public LayerMask whatIsGround;
@@ -35,9 +35,8 @@ public class PlayerController : MonoBehaviour
     // Public Stats Members
     public int maxHealthCount = 3;
     public Texture2D healthTexture;
-
-    // Private Stats Members
-    private int health = 3;
+    public string sceneToLoadOnDeath = "";
+    public int health = 3;
 
     // Public Animation Timers
     public float jumpAnimTime = 0.25f;
@@ -112,22 +111,11 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Resolve hurt effect set hurt flag to false
-        if (isBeingHurt)
-        {
-            animator.SetBool("IsBeingHurt", true);
-
-            GotHit();
-            isBeingHurt = false;
-   
-            StartCoroutine(OnHurtAnimation());
-        }
-
         // Check for danger zone
         CheckDangerZone();
 
         // Resolve death due to danger zone or enough hits
-        if (!IsAlive())
+        if (!IsAlive() && animator.GetBool("IsAlive"))
         {
             animator.SetBool("IsAlive", false);
             animator.SetBool("IsJumping", false);
@@ -266,7 +254,7 @@ public class PlayerController : MonoBehaviour
 
     public virtual void OnGettingHit()
     {
-        isBeingHurt = true;
+        GotHit();
     }
 
     IEnumerator OnJumpAnimation()
@@ -296,7 +284,21 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator OnHurtAnimation()
     {
-        yield return new WaitForSeconds(hurtAnimTime);
+        GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+
+        while (GetComponent<SpriteRenderer>().color.g > 0.2f)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(1f, GetComponent<SpriteRenderer>().color.g - 0.2f, GetComponent<SpriteRenderer>().color.b - 0.2f);
+            yield return new WaitForSeconds(0.03f);
+        }
+
+        while (GetComponent<SpriteRenderer>().color.g < 1)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(1f, GetComponent<SpriteRenderer>().color.g + 0.2f, GetComponent<SpriteRenderer>().color.b + 0.2f);
+            yield return new WaitForSeconds(0.03f);
+        }
+
+        yield return new WaitForSeconds(hurtAnimTime - 0.24f);
 
         animator.SetBool("IsBeingHurt", false);
     }
@@ -305,7 +307,14 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(deathAnimTime);
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (sceneToLoadOnDeath == "")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        else
+        {
+            SceneManager.LoadScene(sceneToLoadOnDeath);
+        }
     }
 
     // ------
@@ -313,9 +322,11 @@ public class PlayerController : MonoBehaviour
     // ------
     protected virtual void GotHit()
     {
-        if (health > 0)
+        if (health > 0 && !animator.GetBool("IsBeingHurt"))
         {
             health--;
+            animator.SetBool("IsBeingHurt", true);
+            StartCoroutine(OnHurtAnimation());
         }
     }
 
@@ -331,6 +342,11 @@ public class PlayerController : MonoBehaviour
     // ---
     protected virtual void OnGUI()
     {
+        if (!isInputEnabled)
+        {
+            return;
+        }
+
         // Health
         Rect healthIcon = new Rect(20, 93, 25, 25);
         for (int i = 1; i <= health; i++)

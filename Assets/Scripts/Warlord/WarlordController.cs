@@ -8,6 +8,7 @@ public class WarlordController : PlayerController
     public Transform attackPosition;
     public LayerMask whatIsEnemies;
     public float attackRange;
+    public float damageWaitTime = 0.40f;
 
     // -----------
     // Controllers
@@ -27,7 +28,7 @@ public class WarlordController : PlayerController
             }
 
             // Slash the enemy
-            colliders[i].GetComponent<EnemyController>().GotSlashedBySword();
+            StartCoroutine(OnDamagingEnemy(colliders[i].gameObject));
 
             // Add to damaged enemies
             enemies.Add(colliders[i].gameObject);
@@ -39,10 +40,17 @@ public class WarlordController : PlayerController
     // ------
     // Events
     // ------
+    IEnumerator OnDamagingEnemy(GameObject enemy)
+    {
+        yield return new WaitForSeconds(damageWaitTime);
+
+        enemy.GetComponent<EnemyController>().GotSlashedBySword();
+    }
+
     public override void OnGettingHit()
     {
         // If blocking, do not get hit
-        if (!animator.GetBool("IsRightClick"))
+        if (!IsBlocking())
         {
             base.OnGettingHit();
         }
@@ -54,10 +62,15 @@ public class WarlordController : PlayerController
     protected override void GotHit()
     {
         // If blocking, do not get hit
-        if (!animator.GetBool("IsRightClick"))
+        if (!IsBlocking())
         {
             base.GotHit();
         }
+    }
+
+    public bool IsBlocking()
+    {
+        return animator.GetBool("IsRightClick");
     }
 
     // ---
