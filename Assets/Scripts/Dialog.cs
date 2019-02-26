@@ -33,7 +33,7 @@ public class Dialog : MonoBehaviour
     // -------------------
     void Update()
     {
-        if (continueButton.activeSelf && Time.time >= lastRefreshTime + timeout)
+        if (timeout > 0 && continueButton.activeSelf && Time.time >= lastRefreshTime + timeout)
         {
             OnNextSentence();
         }
