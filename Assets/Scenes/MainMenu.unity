@@ -716,6 +716,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -30
       objectReference: {fileID: 0}
+    - target: {fileID: 2975624772669536136, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 480380229816952682, guid: b9e657dc39f6af446b04d4c9ad81ff03,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -799,7 +804,7 @@ PrefabInstance:
     - target: {fileID: 3093347939182799893, guid: b9e657dc39f6af446b04d4c9ad81ff03,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 0.77745146
       objectReference: {fileID: 0}
     - target: {fileID: 6870009568531956176, guid: b9e657dc39f6af446b04d4c9ad81ff03,
         type: 3}
@@ -814,7 +819,7 @@ PrefabInstance:
     - target: {fileID: 6870009568531956176, guid: b9e657dc39f6af446b04d4c9ad81ff03,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000030517578
+      value: 75.00998
       objectReference: {fileID: 0}
     - target: {fileID: 4920611632876476046, guid: b9e657dc39f6af446b04d4c9ad81ff03,
         type: 3}
@@ -965,6 +970,56 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 140745739112629796, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_Name
+      value: BossFirstLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 206191234224029731, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_Name
+      value: NorthLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 233163074349625688, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_Name
+      value: DesertLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920611632876476033, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_Name
+      value: ForestLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5113219464858158100, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_Name
+      value: BossSecondLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 140745739112629802, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: BossFirstPhaseScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 206191234224029741, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: NorthScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 233163074349625686, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: DesertScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920611632876476047, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: ForestScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 5113219464858158106, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: BossSecondPhaseScene
       objectReference: {fileID: 0}
     - target: {fileID: 140745739631609302, guid: b9e657dc39f6af446b04d4c9ad81ff03,
         type: 3}
@@ -974,6 +1029,53 @@ PrefabInstance:
     - target: {fileID: 140745739631609302, guid: b9e657dc39f6af446b04d4c9ad81ff03,
         type: 3}
       propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 140745739631609302, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_text
+      value: 'Chief of the North
+
+        Boss Phase 1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 140745739631609302, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 140745739631609302, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 140745739631609302, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 140745739631609302, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 140745739631609302, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 140745739631609302, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 140745739631609302, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 140745739631609302, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_fontStyle
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 206191234743010257, guid: b9e657dc39f6af446b04d4c9ad81ff03,
@@ -986,6 +1088,53 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 206191234743010257, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_text
+      value: 'Symbols of Sumonings
+
+        The North'
+      objectReference: {fileID: 0}
+    - target: {fileID: 206191234743010257, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 206191234743010257, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 206191234743010257, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 206191234743010257, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 206191234743010257, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 206191234743010257, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 206191234743010257, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 206191234743010257, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 233163073794994858, guid: b9e657dc39f6af446b04d4c9ad81ff03,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -995,6 +1144,58 @@ PrefabInstance:
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 233163073794994858, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_text
+      value: 'Treasure Escape
+
+        The Desert'
+      objectReference: {fileID: 0}
+    - target: {fileID: 233163073794994858, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 233163073794994858, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 233163073794994858, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 233163073794994858, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 233163073794994858, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 233163073794994858, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 233163073794994858, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 233163073794994858, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 233163073794994858, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4920611632323810675, guid: b9e657dc39f6af446b04d4c9ad81ff03,
         type: 3}
@@ -1006,6 +1207,63 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4920611632323810675, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_text
+      value: 'A Warlord''s Duty
+
+        The Forest'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920611632323810675, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920611632323810675, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920611632323810675, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920611632323810675, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920611632323810675, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920611632323810675, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920611632323810675, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920611632323810675, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920611632323810675, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920611632323810675, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5113219464303396838, guid: b9e657dc39f6af446b04d4c9ad81ff03,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -1014,6 +1272,53 @@ PrefabInstance:
     - target: {fileID: 5113219464303396838, guid: b9e657dc39f6af446b04d4c9ad81ff03,
         type: 3}
       propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5113219464303396838, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_text
+      value: 'The Last Requiem
+
+        Boss Phase 2'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5113219464303396838, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 5113219464303396838, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5113219464303396838, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5113219464303396838, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5113219464303396838, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5113219464303396838, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5113219464303396838, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5113219464303396838, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: m_fontStyle
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
