@@ -9,7 +9,7 @@ public class RangerController : PlayerController
     
     // Private Arrow Members
     private float arrowWaitTime;
-    private float xArrowPosition = 0.7f;
+    private float xArrowPosition = 0.6f;
     private bool isArrowInAir = false;
 
     // Public Haste Members
@@ -91,16 +91,16 @@ public class RangerController : PlayerController
         while (GetComponent<SpriteRenderer>().color.r > 0.2f)
         {
             GetComponent<SpriteRenderer>().color = new Color(GetComponent<SpriteRenderer>().color.r - 0.1f, 1f, GetComponent<SpriteRenderer>().color.b - 0.1f);
-            yield return new WaitForSeconds(0.03f);
+            yield return new WaitForSeconds(0.04f);
         }
 
         while (GetComponent<SpriteRenderer>().color.r < 1)
         {
             GetComponent<SpriteRenderer>().color = new Color(GetComponent<SpriteRenderer>().color.r + 0.1f, 1f, GetComponent<SpriteRenderer>().color.b + 0.1f);
-            yield return new WaitForSeconds(0.03f);
+            yield return new WaitForSeconds(0.04f);
         }
 
-        yield return new WaitForSeconds(hasteDuration - 0.48f);
+        yield return new WaitForSeconds(hasteDuration - 0.64f);
 
         runSpeed -= hasteBonus;
 
