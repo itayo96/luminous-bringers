@@ -4,6 +4,27 @@
     <e p="C:\Development\colman\luminous-bringers" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Quantum Tek" t="Include">
+          <e p="Menu Template" t="Include">
+            <e p="Resources" t="Include">
+              <e p="Fonts" t="Include">
+                <e p="Comfortaa" t="Include">
+                  <e p="OFL.txt" t="Include" />
+                </e>
+              </e>
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="Menu" t="Include">
+                <e p="Menu.cs" t="Include" />
+                <e p="Tab.cs" t="Include" />
+                <e p="Window.cs" t="Include" />
+              </e>
+              <e p="UI" t="Include">
+                <e p="OptionsList.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
         <e p="Scripts" t="Include">
           <e p="Dialog.cs" t="Include" />
           <e p="DialogWriter.cs" t="Include" />
