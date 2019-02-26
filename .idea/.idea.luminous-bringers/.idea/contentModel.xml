@@ -26,6 +26,14 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="Boss" t="Include">
+            <e p="ChiefController.cs" t="Include" />
+            <e p="Pillar.cs" t="Include" />
+            <e p="PowerBall.cs" t="Include" />
+            <e p="ProtectivePlatform.cs" t="Include" />
+            <e p="Rock.cs" t="Include" />
+          </e>
+          <e p="BoxTrigger.cs" t="Include" />
           <e p="Dialog.cs" t="Include" />
           <e p="DialogWriter.cs" t="Include" />
           <e p="Elementalist" t="Include">
@@ -45,6 +53,7 @@
             <e p="Arrow.cs" t="Include" />
             <e p="RangerController.cs" t="Include" />
           </e>
+          <e p="ScreenBreaking.cs" t="Include" />
           <e p="Warlord" t="Include">
             <e p="WarlordController.cs" t="Include" />
           </e>
