@@ -6,12 +6,20 @@ public class RangerController : PlayerController
 {
     // Public Arrow Members
     public GameObject arrowToRight, arrowToLeft;
-
+    
     // Private Arrow Members
     private float arrowWaitTime;
     private float xArrowPosition = 0.7f;
-
     private bool isArrowInAir = false;
+
+    // Public Haste Members
+    public float hasteBonus = 10f;
+    public float hasteDuration = 3f;
+    public float hasteCooldown = 12f;
+    public Texture2D hasteTexture;
+
+    // Private Haste Members
+    private bool isHasteActive = false;
 
     // --------
     // Starters
@@ -33,7 +41,7 @@ public class RangerController : PlayerController
 
     protected override void RightClick()
     {
-        Shoot(arrowToRight, arrowToLeft, arrowWaitTime);
+        Haste();
     }
     
     void Shoot(GameObject arrowToRight, GameObject arrowToLeft, float waitTime)
@@ -49,6 +57,20 @@ public class RangerController : PlayerController
         }
     }
 
+    void Haste()
+    {
+        if (isHasteActive)
+        {
+            return;
+        }
+
+        runSpeed += hasteBonus;
+
+        isHasteActive = true;
+
+        StartCoroutine(OnHaste());
+    }
+
     // ------
     // Events
     // ------
@@ -60,5 +82,50 @@ public class RangerController : PlayerController
 
         arrowPosition += new Vector2(x_position, 0f);
         Instantiate(arrow, arrowPosition, Quaternion.identity);
+    }
+
+    IEnumerator OnHaste()
+    {
+        GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+
+        while (GetComponent<SpriteRenderer>().color.r > 0.2f)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(GetComponent<SpriteRenderer>().color.r - 0.1f, 1f, GetComponent<SpriteRenderer>().color.b - 0.1f);
+            yield return new WaitForSeconds(0.03f);
+        }
+
+        while (GetComponent<SpriteRenderer>().color.r < 1)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(GetComponent<SpriteRenderer>().color.r + 0.1f, 1f, GetComponent<SpriteRenderer>().color.b + 0.1f);
+            yield return new WaitForSeconds(0.03f);
+        }
+
+        yield return new WaitForSeconds(hasteDuration - 0.48f);
+
+        runSpeed -= hasteBonus;
+
+        yield return new WaitForSeconds(hasteCooldown);
+
+        isHasteActive = false;
+    }
+
+    // ---
+    // GUI
+    // ---
+    protected override void OnGUI()
+    {
+        if (!isInputEnabled)
+        {
+            return;
+        }
+
+        base.OnGUI();
+
+        // Haste Icon
+        if (!isHasteActive)
+        {
+            Rect hasteIcon = new Rect(240, 93, 25, 25);
+            GUI.DrawTexture(hasteIcon, hasteTexture);
+        }
     }
 }
