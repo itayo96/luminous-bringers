@@ -48,12 +48,14 @@
             <e p="ForestMinimap.cs" t="Include" />
             <e p="NorthMinimap.cs" t="Include" />
           </e>
+          <e p="PauseScript.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
           <e p="Ranger" t="Include">
             <e p="Arrow.cs" t="Include" />
             <e p="RangerController.cs" t="Include" />
           </e>
           <e p="ScreenBreaking.cs" t="Include" />
+          <e p="Tutorial.cs" t="Include" />
           <e p="Warlord" t="Include">
             <e p="WarlordController.cs" t="Include" />
           </e>

@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     private float horizontalMove = 0f;
     private bool isPreAirborn = false;
     private float lastDistance = 0f;
-    protected bool isInputEnabled = true;
+    public static bool isInputEnabled = true;
 
     // Public Ground Members
     public LayerMask whatIsGround;

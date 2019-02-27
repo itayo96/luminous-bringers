@@ -94,6 +94,8 @@ namespace QuantumTek.MenuSystem
         [SerializeField] protected List<UISetting> uiSettings = new List<UISetting>();
         #endregion
 
+        public static bool isPaused = false;
+        
         protected void Awake()
         {
             // Finds the window componenents in children and adds them to the list of windows.
@@ -285,6 +287,13 @@ namespace QuantumTek.MenuSystem
                 { windows[i].gameObject.SetActive(false); }
             }
         }
+
+        public void Resume()
+        {
+            isPaused = false;
+            SceneManager.UnloadScene("PauseScene");
+        }
+        
         /// <summary> Hides the menu and its currently active window(s). </summary>
         public void HideMenu()
         {
