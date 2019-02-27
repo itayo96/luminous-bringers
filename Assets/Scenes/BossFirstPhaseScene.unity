@@ -340,7 +340,7 @@ MonoBehaviour:
   continueButton: {fileID: 1363150507}
   player: {fileID: 0}
   typingSpeed: 0.02
-  timeout: 3
+  timeout: 6
 --- !u!1001 &554558123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1922,7 +1922,7 @@ PrefabInstance:
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
       propertyPath: instructions.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
@@ -1932,27 +1932,36 @@ PrefabInstance:
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
       propertyPath: instructions.Array.data[0]
-      value: 'Pre Boss Story Text #1'
+      value: 'Chief: Ha! Dont be kidding me, you three are trying to challenge me?
+        The one with godlike powers? You can be my dummies to practice on! Muah'
       objectReference: {fileID: 0}
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
       propertyPath: instructions.Array.data[1]
-      value: 'Pre Boss Story Text #2'
+      value: 'EL: It cannot be! They already finished the summoning. This monster
+        must be stopped!'
       objectReference: {fileID: 0}
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
       propertyPath: instructions.Array.data[2]
-      value: 'Pre Boss Story Text #3'
+      value: 'WL: I wont let him get to the Kingdom borders. He is going down!'
       objectReference: {fileID: 0}
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
       propertyPath: instructions.Array.data[3]
-      value: 'Pre Boss Story Text #4'
+      value: 'Rg: I have no idea what is going on here and how I got into this mess,
+        but its do or die time!'
       objectReference: {fileID: 0}
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
       propertyPath: instructions.Array.data[4]
-      value: 'Pre Boss Story Text #5'
+      value: 'Chief: I love your spirit, and soon enough it will be crashed together
+        with your souls!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[5]
+      value: ~ ~ ~ Defeat the Chief at all cost! ~ ~ ~
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4988716b90dfdc2419e8952aa0f8c76a, type: 3}
@@ -2285,7 +2294,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -40, y: 630}
+  m_AnchoredPosition: {x: -38.2, y: 567}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 1, y: 0}
 --- !u!1001 &1433918749
@@ -2800,7 +2809,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 16, y: 311}
+  m_AnchoredPosition: {x: 16, y: 230}
   m_SizeDelta: {x: 1548.5, y: 131.7}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!4 &1806149164 stripped

@@ -639,7 +639,7 @@ PrefabInstance:
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
       propertyPath: instructions.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
@@ -655,14 +655,14 @@ PrefabInstance:
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
       propertyPath: instructions.Array.data[1]
-      value: The creature is strong, and is being supplied by many people with their
-        life energy.
+      value: 'EL: I have to say, it is pretty exciting, more than any last search
+        I have had.'
       objectReference: {fileID: 0}
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
       propertyPath: instructions.Array.data[2]
-      value: I might not be able to fight this thing alone, I hope more noble warriors
-        would come soon.
+      value: 'EL: This world is in such chaos, I hope one day a hero would come and
+        bring the light back.'
       objectReference: {fileID: 0}
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
@@ -1032,7 +1032,8 @@ PrefabInstance:
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
       propertyPath: instructions.Array.data[0]
-      value: 'EL: It seems like the wrong path, I should retrack.'
+      value: 'EL: It seems like the wrong path, I should backtrack fast! This sensasion
+        is growing.'
       objectReference: {fileID: 0}
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
@@ -1370,7 +1371,7 @@ PrefabInstance:
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
       propertyPath: instructions.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
@@ -1401,7 +1402,7 @@ PrefabInstance:
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
       propertyPath: instructions.Array.data[4]
-      value: Left Mouse Click to Cast Fire I, Right Mouse Click to Cast Ice I
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4988716b90dfdc2419e8952aa0f8c76a, type: 3}
@@ -1687,7 +1688,7 @@ PrefabInstance:
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
       propertyPath: instructions.Array.data[3]
-      value: '???: Die Intruder!'
+      value: 'EL: I m'
       objectReference: {fileID: 0}
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
@@ -11244,7 +11245,7 @@ PrefabInstance:
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
       propertyPath: instructions.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
@@ -11260,7 +11261,8 @@ PrefabInstance:
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
       propertyPath: instructions.Array.data[1]
-      value: Something is being summoned, something strong
+      value: 'EL: Anyway, I will get back here later for more research, for now it
+        is time to move on!'
       objectReference: {fileID: 0}
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
@@ -12036,7 +12038,7 @@ PrefabInstance:
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
       propertyPath: instructions.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
@@ -12046,18 +12048,18 @@ PrefabInstance:
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
       propertyPath: instructions.Array.data[0]
-      value: 'EL: I made it! Now it is time to show my wrath to this summoned creature!'
+      value: 'EL: I made it! Now it is time to show my wrath on this summoned creature!'
       objectReference: {fileID: 0}
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
       propertyPath: instructions.Array.data[1]
-      value: 'EL: I am ready, here I come!!!'
+      value: 'EL: Am I day dreaming or is there a Warlord and some kind of a Ranger
+        over there? They might be able to help stopping this madness...'
       objectReference: {fileID: 0}
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
       propertyPath: instructions.Array.data[2]
-      value: This is getting scary, I must not die here, not to the cold water. I
-        must reach and stop those vikings!
+      value: 'EL: Anyway I am ready, here I come!!!'
       objectReference: {fileID: 0}
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
@@ -14364,7 +14366,7 @@ PrefabInstance:
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
       propertyPath: instructions.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
@@ -14394,7 +14396,7 @@ PrefabInstance:
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
       propertyPath: instructions.Array.data[4]
-      value: A / D to move, Space to jump
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4988716b90dfdc2419e8952aa0f8c76a, type: 3}

@@ -749,6 +749,7 @@ public class ChiefController : EnemyController
 
         yield return new WaitForSeconds(5f);
 
+        dialog.Display("This... Is... The Last Requiem...!");
         animator.SetBool("IsRoaring", true);
         StartCoroutine(OnRoarAnimation());
 

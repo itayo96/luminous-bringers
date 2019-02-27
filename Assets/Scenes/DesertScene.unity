@@ -1358,6 +1358,117 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.9453926, y: 0.023936987}
   m_EdgeRadius: 0
+--- !u!1001 &349093122
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 538782971}
+    m_Modifications:
+    - target: {fileID: 8304685327178187805, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_Name
+      value: InstructionWriter8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 194.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 357864510}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[2]
+      value: 'Rg: Ugh never mind, I will survive!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[0]
+      value: 'Rg: I made it! I survived... Umm wait, what is going on there? Who is
+        this big guy fighting this armored guy?'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[1]
+      value: 'Rg: Oh no no no, it cannot be good... This day is just the worst!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[3]
+      value: '???: Your answer will be your death!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[4]
+      value: Left or Right Mouse Click to Shoot an Arrow
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4988716b90dfdc2419e8952aa0f8c76a, type: 3}
+--- !u!4 &349093123 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+    type: 3}
+  m_PrefabInstance: {fileID: 349093122}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &357864508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1762,6 +1873,117 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &504824793
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 538782971}
+    m_Modifications:
+    - target: {fileID: 8304685327178187805, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_Name
+      value: InstructionWriter7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 175.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 357864510}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[2]
+      value: 'Rg: No reason at all I am telling you!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[0]
+      value: 'Rg: Water! I can see water! I have reached the far north somehow...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[1]
+      value: 'Rg: Well, getting down there looks pretty hard, but I have been to tougher
+        situations. Lets get down there!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[3]
+      value: '???: Your answer will be your death!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[4]
+      value: Left or Right Mouse Click to Shoot an Arrow
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4988716b90dfdc2419e8952aa0f8c76a, type: 3}
+--- !u!4 &504824794 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+    type: 3}
+  m_PrefabInstance: {fileID: 504824793}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &509922606
 GameObject:
   m_ObjectHideFlags: 0
@@ -1946,6 +2168,11 @@ Transform:
   - {fileID: 1826753147}
   - {fileID: 1829833876}
   - {fileID: 1097138550}
+  - {fileID: 1131408232}
+  - {fileID: 1110847735}
+  - {fileID: 1618245690}
+  - {fileID: 504824794}
+  - {fileID: 349093123}
   m_Father: {fileID: 1317833285}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13911,7 +14138,7 @@ PrefabInstance:
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
       propertyPath: instructions.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
@@ -13936,7 +14163,7 @@ PrefabInstance:
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
       propertyPath: instructions.Array.data[3]
-      value: '???: Your answer is your death!'
+      value: '???: Your answer will be your death!'
       objectReference: {fileID: 0}
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
@@ -14028,6 +14255,230 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.9453926, y: 0.013794541}
   m_EdgeRadius: 0
+--- !u!1001 &1110847734
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 538782971}
+    m_Modifications:
+    - target: {fileID: 8304685327178187805, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_Name
+      value: InstructionWriter5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 114.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 357864510}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[2]
+      value: 'Rg: No reason at all I am telling you!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[0]
+      value: 'Rg: Is this kind of magic? I have never believed in magic... Those guys
+        are just crazy, am I wrong?!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[1]
+      value: 'Rg: But this is not the time, I am out of water and some weirdos are
+        after me for no reason'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[3]
+      value: '???: Your answer will be your death!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[4]
+      value: Left or Right Mouse Click to Shoot an Arrow
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4988716b90dfdc2419e8952aa0f8c76a, type: 3}
+--- !u!4 &1110847735 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1110847734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1131408231
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 538782971}
+    m_Modifications:
+    - target: {fileID: 8304685327178187805, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_Name
+      value: InstructionWriter4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 86.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 357864510}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[2]
+      value: 'Rg: No reason at all I am telling you!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[0]
+      value: 'Rg: Woah dude... This place is something else... Maybe even with treasures
+        for my nice and legal collection that is on the wall...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[1]
+      value: 'Rg: But this is not the time, I am out of water and some weirdos are
+        after me for no reason'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[3]
+      value: '???: Your answer will be your death!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[4]
+      value: Left or Right Mouse Click to Shoot an Arrow
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4988716b90dfdc2419e8952aa0f8c76a, type: 3}
+--- !u!4 &1131408232 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1131408231}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1141745397
 GameObject:
   m_ObjectHideFlags: 0
@@ -15264,6 +15715,117 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.9707031, y: 3.9351149}
   m_EdgeRadius: 0
+--- !u!1001 &1618245689
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 538782971}
+    m_Modifications:
+    - target: {fileID: 8304685327178187805, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_Name
+      value: InstructionWriter6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 155
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 357864510}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[2]
+      value: 'Rg: No reason at all I am telling you!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[0]
+      value: 'Rg: What is this climbing thing now... I only want water... And getting
+        home... To my collection...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[1]
+      value: 'Rg: And then some Meclix and Ntdonafds'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[3]
+      value: '???: Your answer will be your death!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[4]
+      value: Left or Right Mouse Click to Shoot an Arrow
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4988716b90dfdc2419e8952aa0f8c76a, type: 3}
+--- !u!4 &1618245690 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1618245689}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1622590608
 GameObject:
   m_ObjectHideFlags: 0
@@ -16205,13 +16767,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
+      propertyPath: instructions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
       propertyPath: dialog
       value: 
       objectReference: {fileID: 357864510}
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
       propertyPath: instructions.Array.data[2]
-      value: A / D to move, Space to jump
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}

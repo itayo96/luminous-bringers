@@ -671,7 +671,7 @@ MonoBehaviour:
     - The treasure hunter, the guy with the bow, our Ranger!
     - Press Left Mouse Button to shoot a nice long arrow!
   - strings:
-    - Now for a nice little speed boost, Press Right Mouse Buttong!
+    - Now for a nice little speed boost, Press Right Mouse Button!
   - strings:
     - Cool, he can turn into the Green Arrow! Haha.... Yeah...
     - Notice that it has cooldown, you can see if it is available near your HP.
@@ -684,8 +684,8 @@ MonoBehaviour:
     - Once you want to go back to the normal view, press C again.
   - strings:
     - Thats it! Thanks for bearing with me for all this time...
-    - Play as much as you want, switch classes with Lshift, and once you want to exit,
-      Press Escape.
+    - Play as much as you want, switch classes with Lshift.
+    - Once you want to exit, Press Escape and then Exit.
   - strings:
     - 
 --- !u!1 &790061453
@@ -1859,7 +1859,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -40, y: 630}
+  m_AnchoredPosition: {x: -40, y: 500.3}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 1, y: 0}
 --- !u!1001 &1629904323
@@ -2093,7 +2093,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 16, y: 311}
+  m_AnchoredPosition: {x: 16, y: 200}
   m_SizeDelta: {x: 1548.5, y: 131.7}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!1 &1824164503

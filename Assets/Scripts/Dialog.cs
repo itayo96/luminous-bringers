@@ -19,6 +19,8 @@ public class Dialog : MonoBehaviour
     private int index;
     private float lastRefreshTime = 0f;
 
+    Coroutine typeCorutine = null;
+
     // --------
     // Starters
     // --------
@@ -52,25 +54,39 @@ public class Dialog : MonoBehaviour
 
         // Setup for typing text
         textDisplay.text = "";
+        sentences = null;
         sentences = instructions;
         index = 0;
 
         lastRefreshTime = Time.time;
 
-        StartCoroutine(Type());
+        // Stop typing if overriding
+        if (typeCorutine != null)
+        {
+            StopCoroutine(typeCorutine);
+        }
+
+        typeCorutine = StartCoroutine(Type());
     }
 
     public void Display(string instruction)
     {
         // Setup for typing text
         textDisplay.text = "";
+        sentences = null;
         sentences = new string[1];
         sentences[0] = instruction;
         index = 0;
 
         lastRefreshTime = Time.time;
 
-        StartCoroutine(Type());
+        // Stop typing if overriding
+        if (typeCorutine != null)
+        {
+            StopCoroutine(typeCorutine);
+        }
+
+        typeCorutine = StartCoroutine(Type());
     }
 
     IEnumerator Type()

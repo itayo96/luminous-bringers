@@ -20,6 +20,7 @@ public class Tutorial : MonoBehaviour
         waiting_for_first_c,
         waiting_for_second_c,
         waiting_for_escape,
+        exit,
 
         count
     }
@@ -47,7 +48,7 @@ public class Tutorial : MonoBehaviour
         KeyCode.Mouse0, KeyCode.Mouse1, KeyCode.LeftShift,
         KeyCode.Mouse0, KeyCode.Mouse1,
         KeyCode.C, KeyCode.C,
-        KeyCode.Escape, KeyCode.Escape
+        KeyCode.Break, KeyCode.Break
     };
 
     // Start is called before the first frame update
@@ -129,6 +130,7 @@ public class Tutorial : MonoBehaviour
                 }
                 break;
 
+            case StateMachine.exit:
             default:
                 break;
         }
@@ -147,7 +149,7 @@ public class Tutorial : MonoBehaviour
         }
         shouldWrite = false;
 
-        if (dialog.textDisplay.text == "" && Input.GetKeyDown(key))
+        if (dialog.textDisplay.text == "" && Input.GetKeyDown(key) && state != StateMachine.exit)
         {
             shouldWrite = true;
             state++;

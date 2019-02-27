@@ -1314,6 +1314,117 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 348574488}
   m_CullTransparentMesh: 0
+--- !u!1001 &354934750
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1533446994}
+    m_Modifications:
+    - target: {fileID: 8304685327178187805, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_Name
+      value: InstructionWriter8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 197.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 519203673}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[0]
+      value: 'WL: The far north... The source of those mighty Vikings...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[1]
+      value: 'WL: It is my time to shine isnt it... To show why I was chosen to the
+        Warlords Guild... Chief of the Vikings, Meet my Steel Sword!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[2]
+      value: 'WL: Well, I better find out, as a Warlord! Haha Horray'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[3]
+      value: 'WL: My journey begins here.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[4]
+      value: A / D to move, Space to jump
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4988716b90dfdc2419e8952aa0f8c76a, type: 3}
+--- !u!4 &354934751 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+    type: 3}
+  m_PrefabInstance: {fileID: 354934750}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &378276728
 GameObject:
   m_ObjectHideFlags: 0
@@ -1684,6 +1795,116 @@ MonoBehaviour:
   player: {fileID: 5009830991967742214}
   typingSpeed: 0.02
   timeout: 3
+--- !u!1001 &547612439
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1533446994}
+    m_Modifications:
+    - target: {fileID: 8304685327178187805, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_Name
+      value: InstructionWriter7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 137.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 519203673}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[0]
+      value: 'WL: Those guys are talking about their God... Riorf something...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[1]
+      value: 'WL: I have a bad feeling about this... My Kingdom is in a great danger!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[2]
+      value: 'WL: Well, I better find out, as a Warlord! Haha Horray'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[3]
+      value: 'WL: My journey begins here.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[4]
+      value: A / D to move, Space to jump
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4988716b90dfdc2419e8952aa0f8c76a, type: 3}
+--- !u!4 &547612440 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+    type: 3}
+  m_PrefabInstance: {fileID: 547612439}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &591397437
 GameObject:
   m_ObjectHideFlags: 0
@@ -2759,6 +2980,116 @@ RectTransform:
   m_AnchoredPosition: {x: 241.14, y: -89.49}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &834738361
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1533446994}
+    m_Modifications:
+    - target: {fileID: 8304685327178187805, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_Name
+      value: InstructionWriter6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 115.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 519203673}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[0]
+      value: 'WL: Why there are so many Vikings from the north around here?'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[1]
+      value: 'WL: And why they all attack me? Aren''t we with peace with them?'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[2]
+      value: 'WL: Well, I better find out, as a Warlord! Haha Horray'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[3]
+      value: 'WL: My journey begins here.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[4]
+      value: A / D to move, Space to jump
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4988716b90dfdc2419e8952aa0f8c76a, type: 3}
+--- !u!4 &834738362 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+    type: 3}
+  m_PrefabInstance: {fileID: 834738361}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &839617167
 GameObject:
   m_ObjectHideFlags: 0
@@ -12649,7 +12980,7 @@ PrefabInstance:
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
       propertyPath: instructions.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
@@ -12962,6 +13293,116 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.9453926, y: 0.009059072}
   m_EdgeRadius: 0
+--- !u!1001 &1164917652
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1533446994}
+    m_Modifications:
+    - target: {fileID: 8304685327178187805, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_Name
+      value: InstructionWriter5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 55.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 519203673}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[0]
+      value: 'WL: This armor makes it pretty hard to move...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[1]
+      value: 'WL: When I was a simple novice, everything was heavy, but not like this...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[2]
+      value: 'WL: But well, this armor and shield will help me soon enough!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[3]
+      value: 'WL: My journey begins here.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[4]
+      value: A / D to move, Space to jump
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4988716b90dfdc2419e8952aa0f8c76a, type: 3}
+--- !u!4 &1164917653 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1164917652}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1168982033
 GameObject:
   m_ObjectHideFlags: 0
@@ -15891,6 +16332,11 @@ Transform:
   - {fileID: 1666654907}
   - {fileID: 239008102}
   - {fileID: 1804664405}
+  - {fileID: 1762189766}
+  - {fileID: 1164917653}
+  - {fileID: 834738362}
+  - {fileID: 547612440}
+  - {fileID: 354934751}
   m_Father: {fileID: 1317833285}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16678,6 +17124,117 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.017456, y: 3.9425077}
   m_EdgeRadius: 0
+--- !u!1001 &1762189765
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1533446994}
+    m_Modifications:
+    - target: {fileID: 8304685327178187805, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_Name
+      value: InstructionWriter4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 44.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 519203673}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[0]
+      value: 'WL: I better not fall down to the waters on my first day as an Elite
+        Soldier!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[1]
+      value: 'WL: This is my time to shine! For the king!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[2]
+      value: Left Mouse Click to Strike, Right Mouse Click to Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[3]
+      value: 'WL: My journey begins here.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+        type: 3}
+      propertyPath: instructions.Array.data[4]
+      value: A / D to move, Space to jump
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4988716b90dfdc2419e8952aa0f8c76a, type: 3}
+--- !u!4 &1762189766 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8304685327178187804, guid: 4988716b90dfdc2419e8952aa0f8c76a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1762189765}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1797342680
 GameObject:
   m_ObjectHideFlags: 0
@@ -16908,7 +17465,7 @@ PrefabInstance:
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
       propertyPath: instructions.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8304685327178187807, guid: 4988716b90dfdc2419e8952aa0f8c76a,
         type: 3}
