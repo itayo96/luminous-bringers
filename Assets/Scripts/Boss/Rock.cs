@@ -32,7 +32,8 @@ public class Rock : MonoBehaviour
     {
         // Colliding with UI
         if (collision.gameObject.layer == LayerMask.NameToLayer("UI") ||
-            collision.gameObject.layer == LayerMask.NameToLayer("OneWayPlatform"))
+            collision.gameObject.layer == LayerMask.NameToLayer("OneWayPlatform") ||
+            collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             grounded = true;
             Destroy(gameObject.GetComponent<Rigidbody2D>(), 0);
