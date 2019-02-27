@@ -1423,6 +1423,16 @@ PrefabInstance:
       propertyPath: m_fontStyle
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7257581291670896972, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: options.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7257581291670896972, guid: b9e657dc39f6af446b04d4c9ad81ff03,
+        type: 3}
+      propertyPath: options.Array.data[4]
+      value: C for Free View Camera
+      objectReference: {fileID: 0}
     - target: {fileID: 3603126804958439387, guid: b9e657dc39f6af446b04d4c9ad81ff03,
         type: 3}
       propertyPath: m_Value
