@@ -16073,7 +16073,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1217709013}
   m_Layer: 0
-  m_Name: Enemies
+  m_Name: DesertEnemies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
