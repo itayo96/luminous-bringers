@@ -58,6 +58,7 @@
           </e>
           <e p="ScreenBreaking.cs" t="Include" />
           <e p="Tutorial.cs" t="Include" />
+          <e p="VictoryScript.cs" t="Include" />
           <e p="Warlord" t="Include">
             <e p="WarlordController.cs" t="Include" />
           </e>

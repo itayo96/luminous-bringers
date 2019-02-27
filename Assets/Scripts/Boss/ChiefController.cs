@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using QuantumTek.MenuSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -39,6 +40,8 @@ public class ChiefController : EnemyController
 
     // Main Camera
     public GameObject mainCamera;
+
+    public Window victoryWindow;
 
     // Tilemap & Background
     public GameObject background;
@@ -1074,6 +1077,10 @@ public class ChiefController : EnemyController
         yield return new WaitForSeconds(deathAnimTime);
 
         // TODO: Victory screen
+        PlayerController.isInputEnabled = false;
+        ChiefController.isActive = false;
+            
+        victoryWindow.Open();
 
         Destroy(gameObject);
     }
