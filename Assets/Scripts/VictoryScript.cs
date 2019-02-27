@@ -7,6 +7,7 @@ public class VictoryScript : MonoBehaviour
 {
     // Components
     public Window victoryWindow;
+    public AudioSource audioSource;
 
     // ------
     // Events
@@ -17,7 +18,13 @@ public class VictoryScript : MonoBehaviour
         {
             PlayerController.isInputEnabled = false;
             ChiefController.isActive = false;
-            
+
+            AudioSource[] allAudioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
+            foreach (AudioSource audioS in allAudioSources)
+            {
+                audioS.Stop();
+            }
+            audioSource.Play();
             victoryWindow.Open();
         }
     }

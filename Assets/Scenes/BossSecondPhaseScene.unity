@@ -1231,6 +1231,7 @@ GameObject:
   - component: {fileID: 985041686}
   - component: {fileID: 985041687}
   - component: {fileID: 985041688}
+  - component: {fileID: 985041689}
   m_Layer: 5
   m_Name: VictoryScreen
   m_TagString: Untagged
@@ -1297,6 +1298,102 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!82 &985041689
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985041685}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 5e2a358d65f5d9146ac1720df877c912, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1012410666
 GameObject:
   m_ObjectHideFlags: 0
@@ -2516,11 +2613,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8105007211640457965, guid: c7c50f6187b91a5438f7d67078ad198c,
-        type: 3}
-      propertyPath: sceneToLoadOnDeath
-      value: BossFirstPhaseScene
-      objectReference: {fileID: 0}
     - target: {fileID: 4919210345991748446, guid: c7c50f6187b91a5438f7d67078ad198c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2575,6 +2667,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8105007211640457965, guid: c7c50f6187b91a5438f7d67078ad198c,
+        type: 3}
+      propertyPath: sceneToLoadOnDeath
+      value: BossFirstPhaseScene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7c50f6187b91a5438f7d67078ad198c, type: 3}
@@ -3254,11 +3351,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4228923464858640786, guid: bca7441a708424d4db8d75f0d2bc9448,
-        type: 3}
-      propertyPath: sceneToLoadOnDeath
-      value: BossFirstPhaseScene
-      objectReference: {fileID: 0}
     - target: {fileID: 1360063308311372402, guid: bca7441a708424d4db8d75f0d2bc9448,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3313,6 +3405,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4228923464858640786, guid: bca7441a708424d4db8d75f0d2bc9448,
+        type: 3}
+      propertyPath: sceneToLoadOnDeath
+      value: BossFirstPhaseScene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bca7441a708424d4db8d75f0d2bc9448, type: 3}
@@ -4307,6 +4404,11 @@ PrefabInstance:
       propertyPath: victoryWindow
       value: 
       objectReference: {fileID: 985041687}
+    - target: {fileID: 7795631962570977951, guid: 2e8682d459bd36e45a04303eb77efff3,
+        type: 3}
+      propertyPath: victoryMusic
+      value: 
+      objectReference: {fileID: 985041689}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e8682d459bd36e45a04303eb77efff3, type: 3}
 --- !u!1001 &1605630838851019362

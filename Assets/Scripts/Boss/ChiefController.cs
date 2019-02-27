@@ -41,7 +41,9 @@ public class ChiefController : EnemyController
     // Main Camera
     public GameObject mainCamera;
 
+    // Victory
     public Window victoryWindow;
+    public AudioSource victoryMusic;
 
     // Tilemap & Background
     public GameObject background;
@@ -1076,10 +1078,15 @@ public class ChiefController : EnemyController
     {
         yield return new WaitForSeconds(deathAnimTime);
 
-        // TODO: Victory screen
         PlayerController.isInputEnabled = false;
         ChiefController.isActive = false;
-            
+
+        AudioSource[] allAudioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
+        foreach (AudioSource audioS in allAudioSources)
+        {
+            audioS.Stop();
+        }
+        victoryMusic.Play();
         victoryWindow.Open();
 
         Destroy(gameObject);
