@@ -236,8 +236,15 @@ public class ChiefController : EnemyController
             warlord.SetActive(true);
             warlord.GetComponent<PlayerController>().OnInputEnabling(true);
 
-            elementalist.GetComponent<PlayerController>().OnInputEnabling(false);
-            ranger.GetComponent<PlayerController>().OnInputEnabling(false);
+            if (elementalist.GetComponent<PlayerController>() != null)
+            {
+                elementalist.GetComponent<PlayerController>().OnInputEnabling(false);
+            }
+
+            if (ranger.GetComponent<PlayerController>() != null)
+            {
+                ranger.GetComponent<PlayerController>().OnInputEnabling(false);
+            } 
 
             state = StateMachine.against_warlord;
             phaseStartingHealth = warlordPartHealth;
@@ -257,8 +264,15 @@ public class ChiefController : EnemyController
             ranger.SetActive(true);
             ranger.GetComponent<PlayerController>().OnInputEnabling(true);
 
-            warlord.GetComponent<PlayerController>().OnInputEnabling(false);
-            elementalist.GetComponent<PlayerController>().OnInputEnabling(false);
+            if (warlord.GetComponent<PlayerController>() != null)
+            {
+                warlord.GetComponent<PlayerController>().OnInputEnabling(false);
+            }
+
+            if (elementalist.GetComponent<PlayerController>() != null)
+            {
+                elementalist.GetComponent<PlayerController>().OnInputEnabling(false);
+            }
             
             state = StateMachine.against_ranger;
             phaseStartingHealth = rangerPartHealth;
@@ -278,8 +292,15 @@ public class ChiefController : EnemyController
             elementalist.SetActive(true);
             elementalist.GetComponent<PlayerController>().OnInputEnabling(true);
 
-            warlord.GetComponent<PlayerController>().OnInputEnabling(false);
-            ranger.GetComponent<PlayerController>().OnInputEnabling(false);
+            if (warlord.GetComponent<PlayerController>() != null)
+            {
+                warlord.GetComponent<PlayerController>().OnInputEnabling(false);
+            }
+
+            if (ranger.GetComponent<PlayerController>() != null)
+            {
+                ranger.GetComponent<PlayerController>().OnInputEnabling(false);
+            }
 
             state = StateMachine.against_elementalist;
             phaseStartingHealth = elementalistPartHealth;
@@ -709,9 +730,20 @@ public class ChiefController : EnemyController
 
     void UltimateState()
     {
-        warlord.GetComponent<PlayerController>().OnInputEnabling(false);
-        elementalist.GetComponent<PlayerController>().OnInputEnabling(false);
-        ranger.GetComponent<PlayerController>().OnInputEnabling(false);
+        if (warlord.GetComponent<PlayerController>() != null)
+        {
+            warlord.GetComponent<PlayerController>().OnInputEnabling(false);
+        }
+
+        if (ranger.GetComponent<PlayerController>() != null)
+        {
+            ranger.GetComponent<PlayerController>().OnInputEnabling(false);
+        }
+
+        if (elementalist.GetComponent<PlayerController>() != null)
+        {
+            elementalist.GetComponent<PlayerController>().OnInputEnabling(false);
+        }
 
         // Switch OST
         mainCamera.GetComponent<AudioSource>().Stop();

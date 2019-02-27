@@ -41,8 +41,9 @@ public class ProtectivePlatform : MonoBehaviour
 
         // Disable any Y movement for the player
         collidie.GetComponent<Rigidbody2D>().gravityScale = 0;
-        collidie.GetComponent<Rigidbody2D>().constraints |= RigidbodyConstraints2D.FreezePositionY;
+        collidie.GetComponent<Rigidbody2D>().constraints |= RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezePositionX;
         Destroy(collidie.GetComponent<Collider2D>());
+        Destroy(collidie.GetComponent<PlayerController>());
 
         // Move up the platform and the player for a little
         float originalY = transform.position.y;
