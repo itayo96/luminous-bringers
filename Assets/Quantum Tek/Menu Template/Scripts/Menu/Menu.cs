@@ -422,8 +422,15 @@ namespace QuantumTek.MenuSystem
             // Show loading graphic.
             if (loadingWindow && !loadingWindow.Active)
             {
-                CloseWindow("Options");
                 loadingWindow.gameObject.SetActive(true); loadingWindow.Open();
+                
+                foreach (Window window in windows)
+                {
+                    if (window.Name != "Loading")
+                    {
+                        CloseWindow(activeWindows[0]);
+                    }
+                }
             }
 
             // Update loading graphic.
@@ -449,8 +456,15 @@ namespace QuantumTek.MenuSystem
             // Show loading graphic.
             if (loadingWindow && !loadingWindow.Active)
             {
-                CloseWindow("Options");
                 loadingWindow.gameObject.SetActive(true); loadingWindow.Open();
+                
+                foreach (Window window in activeWindows)
+                {
+                    if (window.Name != "Loading")
+                    {
+                        CloseWindow(activeWindows[0]);
+                    }
+                }
             }
 
             // Update loading graphic.
