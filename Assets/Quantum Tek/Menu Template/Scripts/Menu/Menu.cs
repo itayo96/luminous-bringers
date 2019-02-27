@@ -420,7 +420,11 @@ namespace QuantumTek.MenuSystem
             AsyncOperation loadOperation = SceneManager.LoadSceneAsync(pBuildIndex);
 
             // Show loading graphic.
-            if (loadingWindow && !loadingWindow.Active) { loadingWindow.gameObject.SetActive(true); loadingWindow.Open(); }
+            if (loadingWindow && !loadingWindow.Active)
+            {
+                CloseWindow("Options");
+                loadingWindow.gameObject.SetActive(true); loadingWindow.Open();
+            }
 
             // Update loading graphic.
             while (!loadOperation.isDone)
@@ -443,7 +447,11 @@ namespace QuantumTek.MenuSystem
             AsyncOperation loadOperation = SceneManager.LoadSceneAsync(pSceneName);
 
             // Show loading graphic.
-            if (loadingWindow && !loadingWindow.Active) { loadingWindow.gameObject.SetActive(true); loadingWindow.Open(); }
+            if (loadingWindow && !loadingWindow.Active)
+            {
+                CloseWindow("Options");
+                loadingWindow.gameObject.SetActive(true); loadingWindow.Open();
+            }
 
             // Update loading graphic.
             while (!loadOperation.isDone)
