@@ -43,7 +43,6 @@ public class EnemyController : MonoBehaviour
 
         if (health <= 0)
         {
-            // TODO: Death animation
             Destroy(gameObject);
         }
     }

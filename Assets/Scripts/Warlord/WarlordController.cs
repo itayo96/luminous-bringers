@@ -44,7 +44,10 @@ public class WarlordController : PlayerController
     {
         yield return new WaitForSeconds(damageWaitTime);
 
-        enemy.GetComponent<EnemyController>().GotSlashedBySword();
+        if (enemy != null && enemy.GetComponent<EnemyController>() != null)
+        {
+            enemy.GetComponent<EnemyController>().GotSlashedBySword();
+        }
     }
 
     public override void OnGettingHit()

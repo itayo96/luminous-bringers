@@ -284,6 +284,8 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator OnHurtAnimation()
     {
+        isInputEnabled = false;
+
         GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
 
         while (GetComponent<SpriteRenderer>().color.g > 0.2f)
@@ -299,6 +301,8 @@ public class PlayerController : MonoBehaviour
         }
 
         yield return new WaitForSeconds(hurtAnimTime - 0.24f);
+
+        isInputEnabled = true;
 
         animator.SetBool("IsBeingHurt", false);
     }
