@@ -29,6 +29,8 @@ public class ChiefController : EnemyController
         public bool wasUsed;
     }
 
+    public static bool isActive = true;
+    
     // Components
     public Animator animator;
 
@@ -106,6 +108,7 @@ public class ChiefController : EnemyController
     // --------
     new void Start()
     {
+        isActive = true;
         health = phaseStartingHealth;
 
         warlord.SetActive(false);
@@ -158,6 +161,11 @@ public class ChiefController : EnemyController
 
     new void Update()
     {
+        if (!isActive)
+        {
+            enrageInSeconds += Time.deltaTime;
+            return;
+        }
         // Enrage
         if (state != StateMachine.ultimate && 
             state != StateMachine.waiting_for_ultimate && 
@@ -1111,7 +1119,7 @@ public class ChiefController : EnemyController
     // ---
     void OnGUI()
     {
-        if (state == StateMachine.ultimate || state == StateMachine.waiting_for_ultimate)
+        if (state == StateMachine.ultimate || state == StateMachine.waiting_for_ultimate || !isActive)
         {
             return;
         }
