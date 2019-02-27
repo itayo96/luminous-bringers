@@ -10,6 +10,7 @@ public class PauseScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        QuantumTek.MenuSystem.Menu.isPaused = false;
     }
 
     // Update is called once per frame
