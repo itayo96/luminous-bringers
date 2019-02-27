@@ -165,7 +165,7 @@ MonoBehaviour:
   jumpAnimTime: 0
   leftClickAnimTime: 0.85
   rightClickAnimTime: 0.85
-  hurtAnimTime: 0.25
+  hurtAnimTime: 0.6
   deathAnimTime: 2
   arrowToRight: {fileID: 6285037841945601156, guid: b32dacd863b6a3d43814b43394b8100a,
     type: 3}

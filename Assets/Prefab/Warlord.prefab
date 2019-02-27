@@ -166,7 +166,7 @@ MonoBehaviour:
   jumpAnimTime: 0
   leftClickAnimTime: 0.85
   rightClickAnimTime: 0.85
-  hurtAnimTime: 0.25
+  hurtAnimTime: 0.6
   deathAnimTime: 2
   attackPosition: {fileID: 7059427384090561100}
   whatIsEnemies:

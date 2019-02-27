@@ -69,7 +69,7 @@ public class ChiefController : EnemyController
     private string damagingElementalBallTag = "";
 
     // Public Animation Timers
-    public float attackAnimTime = 5f;
+    public float attackAnimTime = 1.1f;
     public float castAnimTime = 0.95f;
     public float roarAnimTime = 0.95f;
     public float hurtAnimTime = 0.95f;
@@ -166,6 +166,7 @@ public class ChiefController : EnemyController
             enrageInSeconds += Time.deltaTime;
             return;
         }
+
         // Enrage
         if (state != StateMachine.ultimate && 
             state != StateMachine.waiting_for_ultimate && 
@@ -1074,7 +1075,7 @@ public class ChiefController : EnemyController
 
         // TODO: Victory screen
 
-        Destroy(gameObject, 5);
+        Destroy(gameObject);
     }
 
     // ------
@@ -1118,14 +1119,12 @@ public class ChiefController : EnemyController
         }
 
         health -= damage;
-        animator.SetBool("IsBeingHurt", true);
 
         moveBeforeHurt = horizontalMove;
         animator.SetFloat("Speed", 0);
         horizontalMove = 0;
 
         canBeAttacked = false;
-        StartCoroutine(OnHurtAnimation());
 
         if (health <= 0)
         {
@@ -1139,6 +1138,11 @@ public class ChiefController : EnemyController
 
             StartCoroutine(OnDeathAnimation());
             return;
+        }
+        else
+        {
+            animator.SetBool("IsBeingHurt", true);
+            StartCoroutine(OnHurtAnimation());
         }
     }
 
