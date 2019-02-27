@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
     protected virtual void Start()
     {
         health = maxHealthCount;
+        isInputEnabled = true;
     }
 
     void Awake()
