@@ -407,6 +407,8 @@ public class PatrollingEnemeyController : EnemyController
             return;
         }
 
+        StopAllCoroutines();
+
         health -= damage;
 
         moveBeforeHurt = horizontalMove;
