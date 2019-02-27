@@ -45,11 +45,13 @@ public class PauseScript : MonoBehaviour
         if (QuantumTek.MenuSystem.Menu.isPaused)
         {
             // TODO Add disable for enemies and more
+            ChiefController.isActive = false;
             PlayerController.isInputEnabled = false;
         }
         else
         {
             // TODO Add enable for enemies and more
+            ChiefController.isActive = true;
             PlayerController.isInputEnabled = true;
         }
     }
