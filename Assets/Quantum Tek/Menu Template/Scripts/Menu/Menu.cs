@@ -292,6 +292,10 @@ namespace QuantumTek.MenuSystem
         {
             isPaused = false;
             SceneManager.UnloadScene("PauseScene");
+            
+            // TODO Add enable for enemies and more
+            ChiefController.isActive = true;
+            PlayerController.isInputEnabled = true;
         }
         
         /// <summary> Hides the menu and its currently active window(s). </summary>

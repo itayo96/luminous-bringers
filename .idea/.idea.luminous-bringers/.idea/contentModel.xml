@@ -34,6 +34,7 @@
             <e p="Rock.cs" t="Include" />
           </e>
           <e p="BoxTrigger.cs" t="Include" />
+          <e p="CameraSelector.cs" t="Include" />
           <e p="Dialog.cs" t="Include" />
           <e p="DialogWriter.cs" t="Include" />
           <e p="Elementalist" t="Include">
@@ -43,6 +44,7 @@
           <e p="Enemy" t="Include">
             <e p="EnemyController.cs" t="Include" />
           </e>
+          <e p="FreeViewCameraScript.cs" t="Include" />
           <e p="Minimaps" t="Include">
             <e p="DesertMinimap.cs" t="Include" />
             <e p="ForestMinimap.cs" t="Include" />

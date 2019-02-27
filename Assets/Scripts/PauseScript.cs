@@ -30,6 +30,10 @@ public class PauseScript : MonoBehaviour
 
                         //Activate the Scene
                         asyncOperation.allowSceneActivation = true;
+                        
+                        // TODO Add disable for enemies and more
+                        ChiefController.isActive = false;
+                        PlayerController.isInputEnabled = false;
 
                         return;
                     }
@@ -39,20 +43,11 @@ public class PauseScript : MonoBehaviour
             {
                 QuantumTek.MenuSystem.Menu.isPaused = false;
                 SceneManager.UnloadScene("PauseScene");
+                
+                // TODO Add enable for enemies and more
+                ChiefController.isActive = true;
+                PlayerController.isInputEnabled = true;
             }
-        }
-
-        if (QuantumTek.MenuSystem.Menu.isPaused)
-        {
-            // TODO Add disable for enemies and more
-            ChiefController.isActive = false;
-            PlayerController.isInputEnabled = false;
-        }
-        else
-        {
-            // TODO Add enable for enemies and more
-            ChiefController.isActive = true;
-            PlayerController.isInputEnabled = true;
         }
     }
 }
