@@ -1193,7 +1193,7 @@ PrefabInstance:
     - target: {fileID: 206191234743010257, guid: b9e657dc39f6af446b04d4c9ad81ff03,
         type: 3}
       propertyPath: m_text
-      value: 'Symbols of Sumonings
+      value: 'Symbols of Summoning
 
         The North'
       objectReference: {fileID: 0}

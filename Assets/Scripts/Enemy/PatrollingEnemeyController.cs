@@ -127,8 +127,8 @@ public class PatrollingEnemeyController : EnemyController
 
         // If player is suddenly null or position is out of bounds, go to patrol
         if (player == null ||
-            transform.position.x < xLeftWing - 1f ||
-            transform.position.x > xRightWing + 1f)
+            transform.position.x < xLeftWing - 0.3f ||
+            transform.position.x > xRightWing + 0.3f)
         {
             state = StateMachine.patrol;
             return;
@@ -137,30 +137,10 @@ public class PatrollingEnemeyController : EnemyController
         // Player is right to the enemy
         if (player.transform.position.x > transform.position.x)
         {
-            if (isFacingLeft)
-            {
-                isFacingLeft = !isFacingLeft;
-
-                // Multiply the character's x local scale by -1.
-                Vector3 theScale = transform.localScale;
-                theScale.x *= -1;
-                transform.localScale = theScale;
-            }
-
             horizontalMove = 1;
         }
         else // Player is left to the enemy
         {
-            if (!isFacingLeft)
-            {
-                isFacingLeft = !isFacingLeft;
-
-                // Multiply the character's x local scale by -1.
-                Vector3 theScale = transform.localScale;
-                theScale.x *= -1;
-                transform.localScale = theScale;
-            }
-
             horizontalMove = -1;
         }
 
@@ -193,30 +173,10 @@ public class PatrollingEnemeyController : EnemyController
         // Walk towards the location
         if (xPatrolTargetPosition > transform.position.x)
         {
-            if (isFacingLeft)
-            {
-                isFacingLeft = !isFacingLeft;
-
-                // Multiply the character's x local scale by -1.
-                Vector3 theScale = transform.localScale;
-                theScale.x *= -1;
-                transform.localScale = theScale;
-            }
-
             horizontalMove = 0.5f;
         }
         else
         {
-            if (!isFacingLeft)
-            {
-                isFacingLeft = !isFacingLeft;
-
-                // Multiply the character's x local scale by -1.
-                Vector3 theScale = transform.localScale;
-                theScale.x *= -1;
-                transform.localScale = theScale;
-            }
-
             horizontalMove = -0.5f;
         }
 

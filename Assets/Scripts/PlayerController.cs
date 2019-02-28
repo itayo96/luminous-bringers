@@ -190,7 +190,7 @@ public class PlayerController : MonoBehaviour
         if (rigidBody.velocity.y < 0.001f)
         {
             // Raycast from the feet of the player directly down
-            RaycastHit2D hit2D = Physics2D.Raycast(groundChecker.position, Vector2.down, 0.2f, whatIsGround);
+            RaycastHit2D hit2D = Physics2D.Raycast(groundChecker.position, Vector2.down, 0.3f, whatIsGround);
 
             // If the raycast hit something
             if (hit2D && !isPreAirborn)
@@ -206,15 +206,13 @@ public class PlayerController : MonoBehaviour
                 else if (isJumping)
                 {
                     // If the hit distance is not less than the lass distance, then jump (he isn't going to go any lower)
-                    
-
                     isPreAirborn = true;
 
                     StartCoroutine(OnJumpAnimation());
 
                     return true;
                 }
-                else if (Math.Abs(rigidBody.velocity.y) < 0.001f)
+                else if (Math.Abs(rigidBody.velocity.y) < 0.1f)
                 {
                     animator.SetBool("IsJumping", false);
                 }
