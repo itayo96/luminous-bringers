@@ -330,7 +330,13 @@ public class PlayerController : MonoBehaviour
         if (health > 0 && !animator.GetBool("IsBeingHurt"))
         {
             StopAllCoroutines();
+            animator.SetBool("IsJumping", false);
+            animator.SetBool("IsLeftClick", false);
+            animator.SetBool("IsRightClick", false);
+            animator.SetFloat("Speed", 0);
+
             health--;
+            horizontalMove = 0;
             animator.SetBool("IsBeingHurt", true);
             StartCoroutine(OnHurtAnimation());
         }

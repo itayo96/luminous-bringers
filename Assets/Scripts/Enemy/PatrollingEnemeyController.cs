@@ -127,8 +127,8 @@ public class PatrollingEnemeyController : EnemyController
 
         // If player is suddenly null or position is out of bounds, go to patrol
         if (player == null ||
-            transform.position.x < xLeftWing ||
-            transform.position.x > xRightWing)
+            transform.position.x < xLeftWing - 1f ||
+            transform.position.x > xRightWing + 1f)
         {
             state = StateMachine.patrol;
             return;
@@ -408,11 +408,13 @@ public class PatrollingEnemeyController : EnemyController
         }
 
         StopAllCoroutines();
+        animator.SetBool("IsAttacking", false);
+        animator.SetBool("GotParried", false);
+        animator.SetFloat("Speed", 0);
 
         health -= damage;
 
         moveBeforeHurt = horizontalMove;
-        animator.SetFloat("Speed", 0);
         horizontalMove = 0;
 
         canBeAttacked = false;
